@@ -1,0 +1,140 @@
+﻿<div class="wrapper">
+    <div ui-view="Header"></div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="min-height:650px !important;" ng-app="CRMApp" id="WeeklyReportController" ng-controller="WeeklyReportController">
+        <!-- header starts here -->
+        <div class="container-fluid page_name">
+            <div class="col-sm-10"><i class="fa fa-flag"></i> Weekly Report</div>
+        </div>
+        <!-- header ends here -->
+        <div class="container-fluid padding_set">
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <div class="col-sm-10 zro">
+                            <div class="col-md-3 zro_left" title="Select Media Type">
+                                <div id="multisel">
+                                    <div class='sel_menu' ng-dropdown-multiselect1="" events="mediaEventListeners" options="MediaTypeList"
+                                         selected-model="mediaType" checkboxes="true" translation-texts="example5customTextsMediaType"
+                                         extra-settings="groupsettings">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 zro_left">
+                                <div class="demo">
+                                    <input style="height: 30px;" id="ctrlanalyticdatepicker" date-range-picker class="form-control date-picker" type="text" options="opts" ng-model="date" />
+                                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="" style=" float:right;" role="group" aria-label="...">
+                                <button type="button" class="btn btn-pdfcell btn-sm" title="EXPORT PDF" ng-click="ConvertPDF(false)"><i class="fa fa-cloud-upload"></i></button>
+                                <button type="button" class="btn btn-mailrec btn-sm" title="EMAIL PDF" ng-click="ConvertPDF(true)"><i class="fa fa-envelope"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="col-md-12">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <div id="multisel" style="margin-bottom:10px !important;">
+                                    <div class='sel_menu' ng-dropdown-multiselect="" options="RelevanceList" events="relevanceEventListeners"
+                                            selected-model="relevanceModel" extra-settings="multiSelectSettings" checkboxes="true"
+                                            translation-texts="example5customTextsRelavance"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 report_headings total-sentiment-chart">
+                                <highchart config="SentimentAnalysisChartConfig" class="span10 sum-wise-report"></highchart>
+                            </div>
+
+                            <div id="tabular-sentiment-chart" class="col-md-12 report_headings">
+                                <table border="0" class="table-responsive table-striped table">
+                                    <thead>
+                                        <tr class="report_table_header">
+                                            <th class="td_padding" width="30%">Sentiment Analysis</th>
+                                            <th class="td_padding" width="10%">Positive</th>
+                                            <th class="td_padding" width="10%">Neutral</th>
+                                            <th class="td_padding" width="10%">Negative</th>
+                                            <th class="td_padding" width="10%">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="report_table_td" ng-repeat="rel in tabularRelSent">
+                                            <td class="td_padding">{{rel.RelName}}</td>
+                                            <td class="td_padding">{{rel.Positive}}</td>
+                                            <td class="td_padding">{{rel.Neutral}}</td>
+                                            <td class="td_padding">{{rel.Negative}}</td>
+                                            <td class="td_padding">{{rel.TotalSent}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 top_grp_marg">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <div id="multisel" style="margin-bottom:10px !important;">
+                                    <div class='sel_menu' ng-dropdown-multiselect="" options="ChannelsList" events="channelEventListeners"
+                                         selected-model="channelType" extra-settings="multiSelectSettings" checkboxes="true"
+                                         translation-texts="example5customTextsChannel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 report_headings ke-sentiment-chart">
+                                <highchart config="KEChannelWiseConfig" class="span10 sum-wise-report"></highchart>
+                            </div>
+
+                            <div class="col-md-12 report_headings other-sentiment-chart">
+                                <highchart config="OtherDiscoChannelWiseConfig" class="span10 sum-wise-report"></highchart>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 top_grp_marg">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <div id="multisel" style="margin-bottom:10px !important;">
+                                    <div class='sel_menu' ng-dropdown-multiselect="" options="CategoriesList" events="categoryEventListeners"
+                                         selected-model="categoryModel" extra-settings="multiSelectSettings" checkboxes="true"
+                                         translation-texts="example5customTextsChannel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 report_headings ke-category-chart">
+                                <highchart config="CategoryAnalysisChartConfig" class="span10 sum-wise-report"></highchart>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 top_grp_marg">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <div id="multisel" style="margin-bottom:10px !important;">
+                                    <div class='sel_menu' ng-dropdown-multiselect="" options="NewsTypeList" events="newsTypeEventListeners"
+                                         selected-model="newsType" extra-settings="multiSelectSettings" checkboxes="true"
+                                         translation-texts="example5customTextsChannel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 report_headings ke-newstype-chart">
+                                <highchart config="NewsTypeAnalysisChartConfig" class="span10 sum-wise-report"></highchart>
+                            </div>
+
+                            <div class="col-md-2 text-center">
+                                <div ng-if="mediaType.id == 3">
+                                    <strong>Total Print PR Value</strong><br>
+                                    <div class="data_circle1 ng-binding">{{TotalPRValue}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-10 report_headings activities-chart">
+                                <highchart id="KEActivityWiseConfig" class="span10 sum-wise-report"></highchart>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+    </div>
+</div>
+<!-- Main content -->
+<div ui-view="Footer"></div>

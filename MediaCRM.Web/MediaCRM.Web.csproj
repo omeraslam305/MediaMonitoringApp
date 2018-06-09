@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1CCBAE7F-8D92-4590-90B6-028AB9027D13}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SocialCRM.Web</RootNamespace>
+    <AssemblyName>SocialCRM.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <NuGetPackageImportStamp>762e533c</NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.7.4137.9688, Culture=neutral, PublicKeyToken=a4292a325f69b123, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BouncyCastle.1.7.0\lib\Net40-Client\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.10.0.25332, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Google.Apis.1.10.0\lib\net40\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Analytics.v3, Version=1.10.0.124, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Google.Apis.Analytics.v3.1.10.0.1240\lib\portable-net40+sl50+win+wpa81+wp80\Google.Apis.Analytics.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.10.0.25333, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Google.Apis.Auth.1.10.0\lib\net40\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.Mvc4">
+      <HintPath>..\packages\Google.Apis.Auth.Mvc.1.10.0\lib\net40\Google.Apis.Auth.Mvc4.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.10.0.25333, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Google.Apis.Auth.1.10.0\lib\net40\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.10.0.25331, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Google.Apis.Core.1.10.0\lib\portable-net40+sl50+win+wpa81+wp80\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.10.0.25332, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Google.Apis.1.10.0\lib\net40\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Hammock, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <HintPath>..\packages\TweetSharp-Unofficial.2.3.1.2\lib\4.0\Hammock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.0\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.0\lib\itextsharp.xmlworker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinkedIn.NET, Version=1.0.2.0, Culture=neutral, PublicKeyToken=88e61090765d8c56, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinkedIn.NET.1.0.2.0\lib\net40-client\LinkedIn.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqToExcel, Version=1.10.1.0, Culture=neutral, PublicKeyToken=9c8ea65a58f03f1f, processorArchitecture=x86">
+      <HintPath>..\packages\LinqToExcel.1.10.1\lib\LinqToExcel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqToTwitter.AspNet">
+      <HintPath>..\packages\linqtotwitter.4.1.0\lib\net45\LinqToTwitter.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqToTwitter.net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=957107be965c25d9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\linqtotwitter.4.1.0\lib\net45\LinqToTwitter.net.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcRazorToPdf, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcRazorToPdf.1.0.2\lib\40\MvcRazorToPdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin.Security.Providers">
+      <HintPath>..\packages\Owin.Security.Providers.1.27\lib\net45\Owin.Security.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.7.7.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.7.7\lib\net45\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Remotion, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.10.1\lib\Remotion.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.10.1\lib\Remotion.Data.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Remotion.Interfaces, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.10.1\lib\Remotion.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sparkle.LinkedInNET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sparkle.LinkedInNET.1.0.12\lib\net45\Sparkle.LinkedInNET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.7.0\lib\net45\System.Web.Http.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="TweetSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <HintPath>..\packages\TweetSharp-Unofficial.2.3.1.2\lib\4.0\TweetSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Unity.WebApi, Version=5.2.3.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.WebAPI.5.2.3\lib\net45\Unity.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Zlib.Portable, Version=1.11.0.0, Culture=neutral, PublicKeyToken=431cba815f6a8b5b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Zlib.Portable.Signed.1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Common\AccountController.cs" />
+    <Compile Include="Controllers\Common\EmailController.cs" />
+    <Compile Include="Controllers\Common\UserController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Media\MediaController.cs" />
+    <Compile Include="Controllers\Media\ReportController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Common\Email\EmailModel.cs" />
+    <Compile Include="Models\Common\User\User.cs" />
+    <Compile Include="Models\Media\Channel\MediaChannel.cs" />
+    <Compile Include="Models\Media\Form\MediaFormModel.cs" />
+    <Compile Include="Models\Media\Form\MediaSearchModel.cs" />
+    <Compile Include="Models\Media\Notifications\Notifications.cs" />
+    <Compile Include="Models\Media\Report\ReportModel.cs" />
+    <Compile Include="Models\Media\User\AccountBindingModels.cs" />
+    <Compile Include="Models\Media\User\AccountViewModels.cs" />
+    <Compile Include="Models\Media\User\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Media\User\NotificationViewModel.cs" />
+    <Compile Include="Notifications\NotificationHub.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Repositories\Common\EmailRepository.cs" />
+    <Compile Include="Repositories\Common\IEmailRepository.cs" />
+    <Compile Include="Repositories\Common\IUserRepository.cs" />
+    <Compile Include="Repositories\Common\UserRepository.cs" />
+    <Compile Include="Repositories\Media\CommonRepository.cs" />
+    <Compile Include="Repositories\Media\IMediaRepository.cs" />
+    <Compile Include="Repositories\Media\IReportRepository.cs" />
+    <Compile Include="Repositories\Media\MediaRepository.cs" />
+    <Compile Include="Repositories\Media\ReportRepository.cs" />
+    <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\angular-material.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\angular-block-ui.min.css" />
+    <Content Include="Content\css\bootstrap-colorpalette.css" />
+    <Content Include="Content\css\bootstrap-example.css" />
+    <Content Include="Content\css\bootstrap-multiselect.css" />
+    <Content Include="Content\css\bootstrap-timepicker.css" />
+    <Content Include="Content\css\bootstrap-timepicker.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrapTheme.css" />
+    <Content Include="Content\css\bootstrap_bk.css" />
+    <Content Include="Content\css\circle.css" />
+    <Content Include="Content\css\color_p_s.css" />
+    <Content Include="Content\css\custom.css" />
+    <Content Include="Content\css\customdaterangepicker.css" />
+    <Content Include="Content\css\daterangepicker.min.css" />
+    <Content Include="Content\css\dialog.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\hover.css" />
+    <Content Include="Content\css\prettify.css" />
+    <Content Include="Content\css\profile-tile.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\signup_styles.css" />
+    <Content Include="Content\css\spectrum.min.css" />
+    <Content Include="Content\css\styler.css" />
+    <Content Include="Content\css\styler_deck.css" />
+    <Content Include="Content\css\styler_media.css" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\style_acordion.css" />
+    <Content Include="Content\css\table_style.css" />
+    <Content Include="Content\css\textAngular.css" />
+    <Content Include="Content\css\web.css" />
+    <Content Include="Content\css\_all-skins.css" />
+    <Content Include="Content\EmailTemplates\KE_1.html" />
+    <Content Include="Content\EmailTemplates\KE_2.html" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\images\2abd3efbd7b942e8_Product-squareshelds.xxxlarge.jpg" />
+    <Content Include="Content\images\active_ico.jpg" />
+    <Content Include="Content\images\add_user_ico.png" />
+    <Content Include="Content\images\ana_ico.png" />
+    <Content Include="Content\images\ana_ico16.png" />
+    <Content Include="Content\images\Approved_tag.png" />
+    <Content Include="Content\images\archive_img.jpg" />
+    <Content Include="Content\images\article_large.jpg" />
+    <Content Include="Content\images\at_ico.png" />
+    <Content Include="Content\images\circles.png" />
+    <Content Include="Content\images\click_ico.png" />
+    <Content Include="Content\images\closed_tag.png" />
+    <Content Include="Content\images\demo_s2_graph.png" />
+    <Content Include="Content\images\demo_s_graph.png" />
+    <Content Include="Content\images\diag.png" />
+    <Content Include="Content\images\draft_tag.png" />
+    <Content Include="Content\images\dummy_graph.jpg" />
+    <Content Include="Content\images\dummy_logo.jpg" />
+    <Content Include="Content\images\email_ico.png" />
+    <Content Include="Content\images\error_img.png" />
+    <Content Include="Content\images\example_graph.jpg" />
+    <Content Include="Content\images\facebook-verified.png" />
+    <Content Include="Content\images\facebook_corner_ico.png" />
+    <Content Include="Content\images\fb_btn.png" />
+    <Content Include="Content\images\fb_ico.png" />
+    <Content Include="Content\images\fb_ico16.png" />
+    <Content Include="Content\images\fb_ico3.png" />
+    <Content Include="Content\images\fb_page_ico.jpg" />
+    <Content Include="Content\images\fb_profile_ico.jpg" />
+    <Content Include="Content\images\ga_btn.png" />
+    <Content Include="Content\images\graph1.png" />
+    <Content Include="Content\images\graph2.png" />
+    <Content Include="Content\images\graph3.png" />
+    <Content Include="Content\images\graph4.png" />
+    <Content Include="Content\images\instagram_c.png" />
+    <Content Include="Content\images\insta_corner_ico.png" />
+    <Content Include="Content\images\insta_ico.png" />
+    <Content Include="Content\images\insta_ico16.png" />
+    <Content Include="Content\images\insta_ico3.png" />
+    <Content Include="Content\images\insta_img_1.png" />
+    <Content Include="Content\images\insta_img_2.jpg" />
+    <Content Include="Content\images\insta_img_2.png" />
+    <Content Include="Content\images\insta_img_3.jpg" />
+    <Content Include="Content\images\insta_img_3.png" />
+    <Content Include="Content\images\in_ico.png" />
+    <Content Include="Content\images\in_ico16.png" />
+    <Content Include="Content\images\in_ico3.png" />
+    <Content Include="Content\images\in_page_ico.png" />
+    <Content Include="Content\images\KELogoEmail.jpg" />
+    <Content Include="Content\images\linkedin_corner_ico.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\login_img.png" />
+    <Content Include="Content\images\login_logo.png" />
+    <Content Include="Content\images\logo_s.png" />
+    <Content Include="Content\images\logo_sa.png" />
+    <Content Include="Content\images\logo_sa2.png" />
+    <Content Include="Content\images\logo_sa_ke.png" />
+    <Content Include="Content\images\mail-160x160.jpg" />
+    <Content Include="Content\images\mail128.jpg" />
+    <Content Include="Content\images\mail2.jpg" />
+    <Content Include="Content\images\main_logo.png" />
+    <Content Include="Content\images\main_logo2.png" />
+    <Content Include="Content\images\main_logo2a.png" />
+    <Content Include="Content\images\main_logo_ke.png" />
+    <Content Include="Content\images\map.jpg" />
+    <Content Include="Content\images\name_ico.png" />
+    <Content Include="Content\images\New_tag.gif" />
+    <Content Include="Content\images\New_tag.png" />
+    <Content Include="Content\images\no-data-found.png" />
+    <Content Include="Content\images\No-image-found.jpg" />
+    <Content Include="Content\images\open_tag.png" />
+    <Content Include="Content\images\outlook_c.png" />
+    <Content Include="Content\images\outlook_corner_ico.png" />
+    <Content Include="Content\images\outlook_ico16.png" />
+    <Content Include="Content\images\Pending_tag.png" />
+    <Content Include="Content\images\pointer_ico.png" />
+    <Content Include="Content\images\refresh.png" />
+    <Content Include="Content\images\Rejected_tag.png" />
+    <Content Include="Content\images\retweet_ico.png" />
+    <Content Include="Content\images\rss_feedly.png" />
+    <Content Include="Content\images\rss_icon16.png" />
+    <Content Include="Content\images\Scheduled_tag.PNG" />
+    <Content Include="Content\images\schedule_img.jpg" />
+    <Content Include="Content\images\Sent_tag.png" />
+    <Content Include="Content\images\social_img.png" />
+    <Content Include="Content\images\soc_ico.jpg" />
+    <Content Include="Content\images\tech_img.jpg" />
+    <Content Include="Content\images\trial_tag.PNG" />
+    <Content Include="Content\images\twitter_corner_ico.png" />
+    <Content Include="Content\images\twitter_search.png" />
+    <Content Include="Content\images\twit_verified.png" />
+    <Content Include="Content\images\tw_ico3.png" />
+    <Content Include="Content\images\t_ico.png" />
+    <Content Include="Content\images\t_ico16.png" />
+    <Content Include="Content\images\user20.jpg" />
+    <Content Include="Content\images\yt_ico3.png" />
+    <Content Include="Content\img\ana_c.png" />
+    <Content Include="Content\img\attachment-icon.png" />
+    <Content Include="Content\img\blank.gif" />
+    <Content Include="Content\img\default-50x50.gif" />
+    <Content Include="Content\img\fb_c.png" />
+    <Content Include="Content\img\fb_c2.png" />
+    <Content Include="Content\img\grp42.jpg" />
+    <Content Include="Content\img\grp_pic.jpg" />
+    <Content Include="Content\img\grp_pic128.jpg" />
+    <Content Include="Content\img\instagram_c.png" />
+    <Content Include="Content\img\insta_img_3.jpg" />
+    <Content Include="Content\img\linkedin_c.png" />
+    <Content Include="Content\img\no_data_dashboard.png" />
+    <Content Include="Content\img\paddle_next_999.png" />
+    <Content Include="Content\img\paddle_next_fff.png" />
+    <Content Include="Content\img\paddle_prev_999.png" />
+    <Content Include="Content\img\paddle_prev_fff.png" />
+    <Content Include="Content\img\paperclip_ico.png" />
+    <Content Include="Content\img\thumb_14400082930User.png" />
+    <Content Include="Content\img\twit_c.png" />
+    <Content Include="Content\img\user128.jpg" />
+    <Content Include="Content\img\user2-160x160.jpg" />
+    <Content Include="Content\img\user2-160x160_bk.jpg" />
+    <Content Include="Content\img\user2.jpg" />
+    <Content Include="Content\img\user20.jpg" />
+    <Content Include="Content\img\user2_bk.jpg" />
+    <Content Include="Content\img\user42.jpg" />
+    <Content Include="Content\img\user_add.jpg" />
+    <Content Include="Content\img\user_grp.jpg" />
+    <Content Include="Content\img\user_pic.jpg" />
+    <Content Include="Content\js\app.js" />
+    <Content Include="Content\js\app.min.js" />
+    <Content Include="Content\js\appSideScroll.js" />
+    <Content Include="Content\js\autosize.js" />
+    <Content Include="Content\js\bootstrap-collapse.js" />
+    <Content Include="Content\js\bootstrap-colorpalette.js" />
+    <Content Include="Content\js\bootstrap-multiselect-collapsible-groups.js" />
+    <Content Include="Content\js\bootstrap-multiselect.js" />
+    <Content Include="Content\js\bootstrap-timepicker.js" />
+    <Content Include="Content\js\bootstrap-timepicker.min.js" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\captcha.js" />
+    <Content Include="Content\js\customDatepicker.js" />
+    <Content Include="Content\js\daterangepicker.js" />
+    <Content Include="Content\js\date_time.js" />
+    <Content Include="Content\js\demo.js" />
+    <Content Include="Content\js\donut.js" />
+    <Content Include="Content\js\easyResponsiveTabs.js" />
+    <Content Include="Content\js\googlemapapi.js" />
+    <Content Include="Content\js\highcharts.js" />
+    <Content Include="Content\js\jquery-1.9.1.min.js" />
+    <Content Include="Content\js\jquery.cookie.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-spectrum-colorpicker.min.js" />
+    <Content Include="Scripts\Angular Resources\spectrum.min.js" />
+    <Content Include="Scripts\Angular Resources\textAngular-dropdownToggle.js" />
+    <Content Include="Scripts\Angular Resources\textAngular-rangy.min.js" />
+    <Content Include="Scripts\Angular Resources\textAngular-sanitize.min.js" />
+    <Content Include="Scripts\Angular Resources\textAngular.min.js" />
+    <Content Include="Scripts\Controllers\Media\MediaMonitoringReportController.js" />
+    <Content Include="Scripts\jspdf.plugin.autotable.js" />
+    <Content Include="Scripts\jspdfCommonMethods.js" />
+    <Content Include="Content\js\moment.js" />
+    <Content Include="Content\js\moment.min.js" />
+    <Content Include="Content\js\npm.js" />
+    <Content Include="Content\libs\prettify\prettify.css" />
+    <Content Include="Content\libs\prettify\prettify.js" />
+    <Content Include="Content\plugins\jQueryUI\jquery-ui.js" />
+    <Content Include="Content\plugins\jQueryUI\jquery-ui.min.js" />
+    <Content Include="Content\plugins\jQuery\jQuery-2.1.4.min.js" />
+    <Content Include="Content\plugins\slimScroll\jquery.slimscroll.js" />
+    <Content Include="Content\plugins\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="Content\Profiles\17\17.png" />
+    <Content Include="Content\Profiles\1\1.jpeg" />
+    <Content Include="Content\Profiles\24\24.jpeg" />
+    <Content Include="Content\Profiles\24\24.png" />
+    <Content Include="Content\Profiles\4\4.jpeg" />
+    <Content Include="Content\Profiles\5\5.jpeg" />
+    <Content Include="Content\Profiles\68\68.jpeg" />
+    <Content Include="Content\Profiles\76\76.jpeg" />
+    <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\css\daterangepicker.scss" />
+    <Content Include="Content\css\timepicker.less" />
+    <None Include="Properties\PublishProfiles\KEMediaCRM.pubxml" />
+    <None Include="Properties\PublishProfiles\SocialCRM.pubxml" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\SocialCRM.pubxml" />
+    <Content Include="Scripts\Angular Resources\angular-animate.js" />
+    <Content Include="Scripts\Angular Resources\angular-animate.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-animate.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-animate.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-aria.js" />
+    <Content Include="Scripts\Angular Resources\angular-aria.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-aria.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-aria.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-block-ui.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-cookies.js" />
+    <Content Include="Scripts\Angular Resources\angular-cookies.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-cookies.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-cookies.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-csp.css" />
+    <Content Include="Scripts\Angular Resources\angular-daterangepicker.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-file-upload.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-loader.js" />
+    <Content Include="Scripts\Angular Resources\angular-loader.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-loader.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-loader.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-material.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-message-format.js" />
+    <Content Include="Scripts\Angular Resources\angular-message-format.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-message-format.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-message-format.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-messages.js" />
+    <Content Include="Scripts\Angular Resources\angular-messages.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-messages.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-messages.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-mocks.js" />
+    <Content Include="Scripts\Angular Resources\angular-notify.min.css" />
+    <Content Include="Scripts\Angular Resources\angular-notify.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-password.js" />
+    <Content Include="Scripts\Angular Resources\angular-password.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-resource.js" />
+    <Content Include="Scripts\Angular Resources\angular-resource.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-resource.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-resource.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-route.js" />
+    <Content Include="Scripts\Angular Resources\angular-route.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-route.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-route.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-sanitize.js" />
+    <Content Include="Scripts\Angular Resources\angular-sanitize.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-scenario.js" />
+    <Content Include="Scripts\Angular Resources\angular-touch.js" />
+    <Content Include="Scripts\Angular Resources\angular-touch.min.js" />
+    <Content Include="Scripts\Angular Resources\angular-touch.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-touch.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular-ui-router.js" />
+    <Content Include="Scripts\Angular Resources\angular.js" />
+    <Content Include="Scripts\Angular Resources\angular.min.js" />
+    <Content Include="Scripts\Angular Resources\angular.min.js.map" />
+    <Content Include="Scripts\Angular Resources\angular.min.js.map" />
+    <Content Include="Scripts\Angular Resources\highcharts-ng.js" />
+    <Content Include="Scripts\Angular Resources\ngAutocomplete.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Canvg.js" />
+    <Content Include="Scripts\Controllers\Common\ChangePasswordController.js" />
+    <Content Include="Scripts\Controllers\Common\EmailSettingController.js" />
+    <Content Include="Scripts\Controllers\Common\FooterController.js" />
+    <Content Include="Scripts\Controllers\Common\HeaderController.js" />
+    <Content Include="Scripts\Controllers\Common\LoginController.js" />
+    <Content Include="Scripts\Controllers\Common\PersonalProfileController.js" />
+    <Content Include="Scripts\Controllers\Common\ResetPasswordController.js" />
+    <Content Include="Scripts\Controllers\Common\SetPasswordController.js" />
+    <Content Include="Scripts\Controllers\Common\UserController.js" />
+    <Content Include="Scripts\Controllers\Common\_ConfirmPopUpController.js" />
+    <Content Include="Scripts\Controllers\Common\_ErrorPopUpController.js" />
+    <Content Include="Scripts\Controllers\Common\_ViewAttachmentController.js" />
+    <Content Include="Scripts\Controllers\Common\_ViewScriptController.js" />
+    <Content Include="Scripts\Controllers\Media\CategoriesController.js" />
+    <Content Include="Scripts\Controllers\Media\MediaChannelController.js" />
+    <Content Include="Scripts\Controllers\Media\MediaDashboardController.js" />
+    <Content Include="Scripts\Controllers\Media\MediaController.js" />
+    <Content Include="Scripts\Controllers\Media\ReportController.js" />
+    <Content Include="Scripts\Controllers\Media\WeeklyReportController.js" />
+    <Content Include="Scripts\html2canvas.min.js" />
+    <Content Include="Scripts\html2canvas.svg.min.js" />
+    <Content Include="Scripts\jspdf.min.js" />
+    <Content Include="Scripts\rgbcolor.js" />
+    <Content Include="Scripts\Services\Media\ReportService.js" />
+    <Content Include="Scripts\Views\Common\PersonalProfile\ChangePassword.html" />
+    <Content Include="Scripts\Views\Common\PersonalProfile\PersonalProfile.html" />
+    <Content Include="Scripts\Views\Common\Shared\_ConfirmPopUp.html" />
+    <Content Include="Scripts\Views\Media\Categories.html" />
+    <Content Include="Scripts\Views\Media\MediaForm.html" />
+    <Content Include="Scripts\Views\Media\MediaMonitoringReport.html" />
+    <Content Include="Scripts\Views\Media\MediaNewsList.html" />
+    <Content Include="Scripts\CRMApp.js" />
+    <Content Include="Scripts\datetime-picker.js" />
+    <Content Include="Scripts\Directives\angular-slimscroll.js" />
+    <Content Include="Scripts\Directives\angularjs-dropdown-multiselect - Copy.js" />
+    <Content Include="Scripts\Directives\angularjs-dropdown-multiselect.js" />
+    <Content Include="Scripts\Directives\ComfirmClick.js" />
+    <Content Include="Scripts\Directives\expand-collapse.js" />
+    <Content Include="Scripts\Directives\FileUpload.js" />
+    <Content Include="Scripts\Directives\GlobalService.js" />
+    <Content Include="Scripts\Directives\ng-lodash.js" />
+    <Content Include="Scripts\Factories\CookieFactory.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Services\Common\AuthService.js" />
+    <Content Include="Scripts\Services\Common\EmailSettingService.js" />
+    <Content Include="Scripts\Services\Common\NotificationService.js" />
+    <Content Include="Scripts\Services\Common\UserService.js" />
+    <Content Include="Scripts\Services\Media\MediaService.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-1.0.3.min.js" />
+    <Content Include="Scripts\Views\Common\Email\EmailSettings.html" />
+    <Content Include="Scripts\Views\Common\Layout\Footer.html" />
+    <Content Include="Scripts\Views\Common\Layout\Header.html" />
+    <Content Include="Scripts\Views\Common\Shared\_ErrorPopUp.html" />
+    <Content Include="Scripts\Views\Common\UserCreation\UserCreation.html" />
+    <Content Include="Scripts\Views\Common\User\ErrorPage.html" />
+    <Content Include="Scripts\Views\Common\User\login.html" />
+    <Content Include="Scripts\Views\Common\User\ResetPassword.html" />
+    <Content Include="Scripts\Views\Common\User\SetPassword.html" />
+    <Content Include="Scripts\Views\Common\Universal.html" />
+    <Content Include="Scripts\Views\Media\MediaChannels.html" />
+    <Content Include="Scripts\Views\Media\MediaDashboard.html" />
+    <Content Include="Scripts\Views\Media\MediaReports.html" />
+    <Content Include="Scripts\Views\Common\Shared\_ViewAttachment.html" />
+    <Content Include="Scripts\Views\Common\Shared\_ViewScript.html" />
+    <Content Include="Scripts\Views\Media\MediaWeeklyReport.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\GoogleAnalytics.cshtml" />
+    <Content Include="Views\Analytics\GoogleAnalytics.cshtml" />
+    <Content Include="Views\Analytics\Index.cshtml" />
+    <Content Include="Views\AuthCallback\Index.cshtml" />
+    <Content Include="Views\Mining\MiningDataView.cshtml" />
+    <Content Include="Scripts\Angular Resources\angular-file-upload.min.js.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\PrintClips\" />
+    <Folder Include="Files\Channels\" />
+    <Folder Include="Scripts\Constants\" />
+    <Folder Include="Views\Facebook\" />
+    <Folder Include="Views\Instagram\" />
+    <Folder Include="Views\TestAnalytics\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CRM.Common\CRM.Common.csproj">
+      <Project>{4fd31e43-87dd-4c24-946b-3cea3771aa4b}</Project>
+      <Name>CRM.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CRM.Entities\CRM.Entities.csproj">
+      <Project>{90e69b45-f469-4c6d-8ad7-8c2188c9171b}</Project>
+      <Name>CRM.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6815</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2567/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

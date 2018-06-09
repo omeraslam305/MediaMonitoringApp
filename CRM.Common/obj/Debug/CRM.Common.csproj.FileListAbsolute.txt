@@ -1,0 +1,12 @@
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\bin\Debug\CRM.Common.dll.config
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\bin\Debug\CRM.Common.dll
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\bin\Debug\CRM.Common.pdb
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\obj\Debug\CRM.Common.csprojResolveAssemblyReference.cache
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\obj\Debug\CRM.Common.dll
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\obj\Debug\CRM.Common.pdb
+D:\Work-Study\Work\Projects\TFS\KE-CRM-Media\CRM.Common\bin\Debug\CRM.Common.dll.config
+D:\Work-Study\Work\Projects\TFS\KE-CRM-Media\CRM.Common\bin\Debug\CRM.Common.dll
+D:\Work-Study\Work\Projects\TFS\KE-CRM-Media\CRM.Common\bin\Debug\CRM.Common.pdb
+D:\Work-Study\Work\Projects\TFS\KE-CRM-Media\CRM.Common\obj\Debug\CRM.Common.csprojResolveAssemblyReference.cache
+D:\Work-Study\Work\Projects\TFS\KE-CRM-Media\CRM.Common\obj\Debug\CRM.Common.dll
+D:\Work-Study\Work\Projects\TFS\KE-CRM-Media\CRM.Common\obj\Debug\CRM.Common.pdb

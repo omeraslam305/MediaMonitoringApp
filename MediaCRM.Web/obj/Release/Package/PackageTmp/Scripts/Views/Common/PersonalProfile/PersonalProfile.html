@@ -1,0 +1,93 @@
+﻿<div class="wrapper">
+
+    <style>
+        table tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f7f7f7;
+        }
+
+        .btn-group > .btn:first-child {
+            margin-left: 0;
+            width: auto;
+        }
+        
+    </style>
+
+    <form name="myForm">
+        <div ng-app="CRMApp" class="" ng-controller="PersonalProfileController">
+            <div class="content-wrapper" style="min-height:650px !important;">
+                <!-- Content Header (Page header) -->
+                <!-- header starts here -->
+                <div class="container-fluid page_name">
+                    <div class="col-sm-10"><i class="fa fa-cog"></i> Profile Settings</div>
+
+                </div>
+
+                <div class="container-fluid padding_set">
+                    <div class="col-md-12">
+                        <div class="box box-default">
+                            <div class="box-body">
+                                <div class="col-sm-12  zero_pad" style="margin-top:15px;">
+                                    <div class="col-md-3 text-center bott_marg_20">
+                                        <div class="image">
+                                            <img ng-src="{{picModel!='' && picModel || '/Content/img/user_pic.jpg'}}" class="img-circle img_border thumb" alt="User Image"><br>
+
+                                            <label class="custom-upload" style="margin-left: 0px; margin-right: 0px; float:none;"><input type="file" id="User_image" name="upload_file" ng-model-instant fileread="Changed_UserPic" onchange="angular.element(this).scope().imageUpload(this)" /><i class="fa fa-upload"></i> Change Image</label>
+                                            <p class="warnings_p f_warning">{{errorMsg}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 ">
+                                        <div class="input-group bott_marg_10 input_width">
+                                            <div class="input-group bott_marg_10">
+                                                <span class="input-group-addon input_border_min" id="sizing-addon1"><i class="fa fa-user icon_normal" style="font-size:11px; width: 9px;"></i></span>
+                                                <input type="text" class="form-control input_border_min input_login_h" ng-model="Changed_UserName" name="Changed_UserName" aria-describedby="sizing-addon2">
+                                            </div>
+                                            <p class="warnings_p f_warning" ng-show="myForm.Changed_UserName.$touched && myForm.Changed_UserName.$invalid">This field cannot be empty</p>
+
+                                            <div class="input-group bott_marg_10">
+                                                <span class="input-group-addon input_border_min" id="sizing-addon1"><i class="fa fa-envelope icon_normal" style="font-size:11px; width: 9px;"></i></span>
+                                                <input type="email" class="form-control input_border_min input_login_h" ng-model="Changed_UserEmail" name="Changed_UserEmail" ng-disabled="true" aria-describedby="sizing-addon2">
+                                            </div>
+                                            <p class="warnings_p f_warning" ng-show="myForm.Changed_UserEmail.$error.email">Not a valid e-mail address</p>
+                                            <p class="warnings_p f_warning" ng-show="myForm.Changed_UserEmail.$touched && myForm.Changed_UserEmail.$invalid && !myForm.Changed_UserEmail.$error.email">Email cannot be empty</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4" ng-hide="IsPersonal == 'true'">
+                                        <div class="signup_r_h signup_r_h-border">
+                                            <h1><i class="fa fa-check"></i>Assigned Roles</h1>
+                                            <!--<h3>You got the following rights:</h3>-->
+                                        </div>
+
+                                        <div class="signup_r_c">
+                                            <p ng-repeat="x in User_Rights"><i class="fa fa-check tick "></i> {{x}}<br></p>
+                                            <label class="custom-upload" style="margin-left: 0px; margin-right: 0px; float:none;" ng-click="ChangePassword()"><i class="fa fa-lock"></i> Change Password</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div text-angular ng-model="htmlVariable" name="emailSign"></div>
+                                </div>
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+                    </div>
+
+
+                    <div>
+                        <button type="button" class="btn btn-primary button_round  btn_height3" ng-disabled="myForm.$invalid || errorMsg != ''" ng-click="Save()" style="margin-left:15px;">
+                            SAVE CHANGES
+                        </button>
+                        <button type="button" class="btn btn-cancel button_round  btn_height3" ng-click="Cancel()"><i class="fa fa-remove"></i> CANCEL</button>
+                    </div>
+                </div>
+
+                <!-- Main content -->
+                <!-- /.content -->
+            </div><!-- /.content-wrapper -->
+        </div>
+    </form>
+</div>
+<div ui-view="Footer"></div>

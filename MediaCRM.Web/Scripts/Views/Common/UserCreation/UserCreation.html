@@ -1,0 +1,138 @@
+﻿<div class="wrapper">
+    <div ui-view="Header"></div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="min-height:650px !important;" ng-app="CRMApp" id="UserController" ng-controller="UserController">
+        <!-- header starts here -->
+        <div class="container-fluid page_name">
+            <div class="col-sm-10"><i class="fa fa-flag"></i>Media User</div>
+        </div>
+        <!-- header ends here -->
+        <div class="container-fluid padding_set">
+
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <div class="col-sm-10 zro"><i class="fa fa-bullhorn"></i> USER CREATION</div>
+                        <div class="col-sm-2 zro" style="text-align: right;"> Total Users: {{TotalRecords}}</div>
+                    </div>
+                    <div class="box-body">
+                        <div class="box-body no-padding">
+                            <span style="color:red;margin-left: 15px;" ng-show="errorMsg.length > 0">{{errorMsg}}</span>
+                            <div class="col-md-12">
+                                <div class="col-md-4 zro_left" title="Select News Type">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        Name<br>
+                                        <input type="text" ng-model="name" class="form-control " style="font-size:12px; height:30px;" placeholder="Enter Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-2 zro_left" title="Select Media Type">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        User Right<br>
+                                        <div class='sel_menu' ng-dropdown-multiselect1="" options="UserRightList"
+                                             selected-model="userRight" checkboxes="true" translation-texts="example5customTexts"
+                                             extra-settings="groupsettings">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 zro_left">
+                                    <div style="margin-bottom:10px !important;">
+                                        Email<br>
+                                        <input id="email" type="text" ng-model="email" style="font-size:12px; height:30px;" class="form-control " placeholder="Enter Email">
+                                    </div>
+                                </div>
+                                <div class="col-md-2 zro_left" ng-if="userRight.id == '2' || userRight.id === undefined">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        User Type<br>
+                                        <div class='sel_menu' ng-dropdown-multiselect="" options="MediaTypeList"
+                                             selected-model="mediaType" checkboxes="true" translation-texts="example5customTexts">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <!--<div class="col-md-12 table-bordered pad_sett {{GetStyle($index)}}" ng-repeat="user in UsersList">
+                                    <div class="col-md-12 zro">
+                                        <div class="col-md-2 zro_left"><strong>Name:</strong><br>{{user.Name}}</div>
+                                        <div class="col-md-3 zro_left"><strong>Email:</strong><br> {{user.Email}}</div>
+                                        <div class="col-md-2 zro_left"><strong>User Right:</strong><br> {{user.RightName}}</div>
+                                        <div class="col-md-4 zro_left">
+                                            <strong>User Type:</strong> <br>
+                                            <div ng-if="user.RightName == 'User'">
+                                                <i class="fa fa-check {{user.PrintRightCss}}"></i> Print &nbsp;&nbsp;
+                                                <i class="fa fa-check {{user.TvRightCss}}"></i> TV &nbsp;&nbsp;
+                                                <i class="fa fa-check {{user.RadioRightCss}}"></i> Radio &nbsp;&nbsp;
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="col-md-1 zro_left">
+                                            <strong>Actions:</strong><br>
+                                            <a href="javascript:" title="Edit" ng-click="EditUser(user.Id)" style="float:left; margin:3px 5px 0 0;"><i class="fa fa-pencil"></i></a>
+                                            <a href="javascript:" title="Enable" ng-if="user.IsEnabled == false" ng-click="ChangeUserStatus(user.Email,true)" style="float:left; margin:3px 5px 0 0;"><i class="fa fa-user"></i></a>
+                                            <a href="javascript:" title="Disable" ng-if="user.IsEnabled == true" ng-click="ChangeUserStatus(user.Email,false)" style="float:left; margin:3px 5px 0 0;"><i class="fa fa-power-off"></i></a> 
+                                            <a href="javascript:" title="Delete" ng-click="DeleteUser(user.Id)" style="float:left; margin:3px 5px 0 0;"><i class="fa fa-trash"></i></a>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="media_table_ke table">
+                                    <tr>
+                                        <th width="21%">Name</th>
+                                        <th width="20%">Email</th>
+                                        <th width="18%">User Right</th>
+                                        <th width="36%">User Type</th>
+                                        <th width="5%" class="oranget">Actions</th>
+
+                                    </tr>
+                                    <tr ng-repeat="user in UsersList">
+                                        <td>
+                                            <img ng-if="user.ProfileUrl == '' || user.ProfileUrl == null" src="/Content/img/user2.jpg" style="width:30px;" class="img_circle">
+                                            <img ng-if="user.ProfileUrl != '' && user.ProfileUrl != null" src="{{user.ProfileUrl.replace('~', '')}}" style="width:30px;" class="img_circle"> {{user.Name}}
+                                        </td>
+                                        <td style="padding-top: 15px;"><a href="javascript:">{{user.Email}}</a></td>
+                                        <td style="padding-top: 15px;">{{user.RightName}}</td>
+                                        <td style="padding-top: 15px;">
+                                            <span class="usertype_tag {{user.PrintRightCss}}">Print</span> 
+                                            <span class="usertype_tag {{user.TvRightCss}}">TV</span> 
+                                            <span class="usertype_tag {{user.RadioRightCss}}">Radio</span>
+                                        </td>
+                                        <td align="center" style="padding-top: 15px;">
+                                            <a href="javascript:" title="Edit" ng-click="EditUser(user.Id)"><i class="fa fa-pencil edit"></i></a> 
+                                            <a href="javascript:" title="Delete" ng-click="DeleteUser(user.Id)"><i class="fa fa-trash del"></i></a>
+                                            <a href="javascript:" title="Enable" ng-if="user.IsEnabled == false" ng-click="ChangeUserStatus(user.Email,true)"><i class="fa fa-user"></i></a>
+                                            <a href="javascript:" title="Disable" ng-if="user.IsEnabled == true" ng-click="ChangeUserStatus(user.Email,false)"><i class="fa fa-power-off"></i></a>  
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination pagination-sm">
+                                        <li>
+                                            <a href="javascript:" ng-class="{disabled:(pageNumber == 0)}" ng-click="goToPreviousPage()" class="disabled">Previous</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:" ng-click="goToNextPage()">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div style="margin:15px 0 0 0 !important;" class="col-md-12 zro_left">
+                                <button type="button" ng-click="SaveUser()" class="btn btn-orange button_round3  btn_height3a">SAVE USER</button>
+                                <button type="button" ng-click="Cancel()" class="btn btn-primary button_round3  btn_height3a">CANCEL</button>  
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+    </div>
+</div>
+<!-- Main content -->
+<div ui-view="Footer"></div>
+
+

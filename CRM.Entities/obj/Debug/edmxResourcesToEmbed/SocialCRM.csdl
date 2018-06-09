@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SocialCRMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SocialCRMEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="DeleteChannelScores" />
+    <EntitySet Name="C__MigrationHistory" EntityType="SocialCRMModel.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="SocialCRMModel.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="SocialCRMModel.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="SocialCRMModel.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="SocialCRMModel.AspNetUser" />
+    <EntitySet Name="Categories" EntityType="SocialCRMModel.Category" />
+    <EntitySet Name="ChannelScores" EntityType="SocialCRMModel.ChannelScore" />
+    <EntitySet Name="Cities" EntityType="SocialCRMModel.City" />
+    <EntitySet Name="Emails" EntityType="SocialCRMModel.Email" />
+    <EntitySet Name="EmailRights" EntityType="SocialCRMModel.EmailRight" />
+    <EntitySet Name="MediaChannels" EntityType="SocialCRMModel.MediaChannel" />
+    <EntitySet Name="MediaNews" EntityType="SocialCRMModel.MediaNew" />
+    <EntitySet Name="MediaTypes" EntityType="SocialCRMModel.MediaType" />
+    <EntitySet Name="NewsRelatedToes" EntityType="SocialCRMModel.NewsRelatedTo" />
+    <EntitySet Name="NewsTypes" EntityType="SocialCRMModel.NewsType" />
+    <EntitySet Name="Sentiments" EntityType="SocialCRMModel.Sentiment" />
+    <EntitySet Name="Status" EntityType="SocialCRMModel.Status" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="SocialCRMModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="SocialCRMModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_AspNetUsers_CreatedBy" Association="SocialCRMModel.FK_MediaNews_AspNetUsers_CreatedBy">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="MediaNew" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_AspNetUsersUpdatedBy" Association="SocialCRMModel.FK_MediaNews_AspNetUsersUpdatedBy">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="MediaNew" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChannelScores_NewsType" Association="SocialCRMModel.FK_ChannelScores_NewsType">
+      <End Role="NewsType" EntitySet="NewsTypes" />
+      <End Role="ChannelScore" EntitySet="ChannelScores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChannelScores_Sentiments" Association="SocialCRMModel.FK_ChannelScores_Sentiments">
+      <End Role="Sentiment" EntitySet="Sentiments" />
+      <End Role="ChannelScore" EntitySet="ChannelScores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_City" Association="SocialCRMModel.FK_MediaNews_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="MediaNew" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaChannels_MediaType" Association="SocialCRMModel.FK_MediaChannels_MediaType">
+      <End Role="MediaType" EntitySet="MediaTypes" />
+      <End Role="MediaChannel" EntitySet="MediaChannels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_MediaChannels" Association="SocialCRMModel.FK_MediaNews_MediaChannels">
+      <End Role="MediaChannel" EntitySet="MediaChannels" />
+      <End Role="MediaNew" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_MediaType" Association="SocialCRMModel.FK_MediaNews_MediaType">
+      <End Role="MediaType" EntitySet="MediaTypes" />
+      <End Role="MediaNew" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_NewsRelatedTo" Association="SocialCRMModel.FK_MediaNews_NewsRelatedTo">
+      <End Role="NewsRelatedTo" EntitySet="NewsRelatedToes" />
+      <End Role="MediaNew" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_NewsType" Association="SocialCRMModel.FK_MediaNews_NewsType">
+      <End Role="NewsType" EntitySet="NewsTypes" />
+      <End Role="MediaNew" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_Sentiments" Association="SocialCRMModel.FK_MediaNews_Sentiments">
+      <End Role="Sentiment" EntitySet="Sentiments" />
+      <End Role="MediaNew" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_Status" Association="SocialCRMModel.FK_MediaNews_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="MediaNew" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaType_NewsType" Association="SocialCRMModel.FK_MediaType_NewsType">
+      <End Role="MediaType" EntitySet="MediaTypes" />
+      <End Role="NewsType" EntitySet="NewsTypes" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="SocialCRMModel.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="EmailAssignedRights" Association="SocialCRMModel.EmailAssignedRights">
+      <End Role="Email" EntitySet="Emails" />
+      <End Role="EmailRight" EntitySet="EmailRights" />
+    </AssociationSet>
+    <AssociationSet Name="MediaNewsCategories" Association="SocialCRMModel.MediaNewsCategories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="MediaNew" EntitySet="MediaNews" />
+    </AssociationSet>
+    <FunctionImport Name="GetMediaReport">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="MediaTypeIds" Mode="In" Type="String" />
+      <Parameter Name="NewsTypeIds" Mode="In" Type="String" />
+      <Parameter Name="ChannelIds" Mode="In" Type="String" />
+      <Parameter Name="CategoryIds" Mode="In" Type="String" />
+      <Parameter Name="RelevanceIds" Mode="In" Type="String" />
+      <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Script" Mode="In" Type="String" />
+      <Parameter Name="IsKEActivity" Mode="In" Type="Boolean" />
+      <Parameter Name="ReportType" Mode="In" Type="Int32" />
+      <Parameter Name="FilterType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="EDReportFilters" EntityType="SocialCRMModel.EDReportFilter" />
+    <FunctionImport Name="GetMediaReportDrillDown" ReturnType="Collection(SocialCRMModel.GetMediaReportDrillDown_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="MediaTypeIds" Mode="In" Type="String" />
+      <Parameter Name="NewsTypeIds" Mode="In" Type="String" />
+      <Parameter Name="ChannelIds" Mode="In" Type="String" />
+      <Parameter Name="CategoryIds" Mode="In" Type="String" />
+      <Parameter Name="RelevanceIds" Mode="In" Type="String" />
+      <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Script" Mode="In" Type="String" />
+      <Parameter Name="IsKEActivity" Mode="In" Type="Boolean" />
+      <Parameter Name="ReportType" Mode="In" Type="Int32" />
+      <Parameter Name="FilterType" Mode="In" Type="Int32" />
+      <Parameter Name="XAxis1" Mode="In" Type="String" />
+      <Parameter Name="XAxis2" Mode="In" Type="String" />
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="MediaNewsAttachments" EntityType="SocialCRMModel.MediaNewsAttachment" />
+    <AssociationSet Name="FK_MediaNewsAttachment_MediaNews" Association="SocialCRMModel.FK_MediaNewsAttachment_MediaNews">
+      <End Role="MediaNew" EntitySet="MediaNews" />
+      <End Role="MediaNewsAttachment" EntitySet="MediaNewsAttachments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="SocialCRMModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="SocialCRMModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="SocialCRMModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProfileImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmationCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="SocialCRMModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="SocialCRMModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="MediaNews" Relationship="SocialCRMModel.FK_MediaNews_AspNetUsers_CreatedBy" FromRole="AspNetUser" ToRole="MediaNew" />
+    <NavigationProperty Name="MediaNews1" Relationship="SocialCRMModel.FK_MediaNews_AspNetUsersUpdatedBy" FromRole="AspNetUser" ToRole="MediaNew" />
+    <NavigationProperty Name="AspNetRoles" Relationship="SocialCRMModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <Property Name="SignHTML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MediaNews" Relationship="SocialCRMModel.MediaNewsCategories" FromRole="Category" ToRole="MediaNew" />
+  </EntityType>
+  <EntityType Name="ChannelScore">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MediaTypeId" Type="Int32" Nullable="false" />
+    <Property Name="NewsTypeId" Type="Int32" Nullable="false" />
+    <Property Name="SentimentId" Type="Int32" Nullable="false" />
+    <Property Name="TimSlot" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Score" Type="Int32" Nullable="false" />
+    <Property Name="ChannelId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NewsType" Relationship="SocialCRMModel.FK_ChannelScores_NewsType" FromRole="ChannelScore" ToRole="NewsType" />
+    <NavigationProperty Name="Sentiment" Relationship="SocialCRMModel.FK_ChannelScores_Sentiments" FromRole="ChannelScore" ToRole="Sentiment" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MediaNews" Relationship="SocialCRMModel.FK_MediaNews_City" FromRole="City" ToRole="MediaNew" />
+  </EntityType>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailId" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EmailRights" Relationship="SocialCRMModel.EmailAssignedRights" FromRole="Email" ToRole="EmailRight" />
+  </EntityType>
+  <EntityType Name="EmailRight">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailRightName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Emails" Relationship="SocialCRMModel.EmailAssignedRights" FromRole="EmailRight" ToRole="Email" />
+  </EntityType>
+  <EntityType Name="MediaChannel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChannelName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MediaTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MediaType" Relationship="SocialCRMModel.FK_MediaChannels_MediaType" FromRole="MediaChannel" ToRole="MediaType" />
+    <NavigationProperty Name="MediaNews" Relationship="SocialCRMModel.FK_MediaNews_MediaChannels" FromRole="MediaChannel" ToRole="MediaNew" />
+  </EntityType>
+  <EntityType Name="MediaNew">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MediaTypeId" Type="Int32" Nullable="false" />
+    <Property Name="NewsTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ChannelId" Type="Int32" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="NewsDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NewsTime" Type="Time" Precision="0" />
+    <Property Name="SentimentId" Type="Int32" Nullable="false" />
+    <Property Name="Script" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ColumnNumber" Type="Int32" />
+    <Property Name="ColumnHeight" Type="Int32" />
+    <Property Name="AdvertisingRate" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ParValue" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Multiplier" Type="Double" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NumOfRepetition" Type="Int32" />
+    <Property Name="PageNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NewsRelation" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="SocialCRMModel.FK_MediaNews_AspNetUsers_CreatedBy" FromRole="MediaNew" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUser1" Relationship="SocialCRMModel.FK_MediaNews_AspNetUsersUpdatedBy" FromRole="MediaNew" ToRole="AspNetUser" />
+    <NavigationProperty Name="City" Relationship="SocialCRMModel.FK_MediaNews_City" FromRole="MediaNew" ToRole="City" />
+    <NavigationProperty Name="MediaChannel" Relationship="SocialCRMModel.FK_MediaNews_MediaChannels" FromRole="MediaNew" ToRole="MediaChannel" />
+    <NavigationProperty Name="MediaType" Relationship="SocialCRMModel.FK_MediaNews_MediaType" FromRole="MediaNew" ToRole="MediaType" />
+    <NavigationProperty Name="NewsRelatedTo" Relationship="SocialCRMModel.FK_MediaNews_NewsRelatedTo" FromRole="MediaNew" ToRole="NewsRelatedTo" />
+    <NavigationProperty Name="NewsType" Relationship="SocialCRMModel.FK_MediaNews_NewsType" FromRole="MediaNew" ToRole="NewsType" />
+    <NavigationProperty Name="Sentiment" Relationship="SocialCRMModel.FK_MediaNews_Sentiments" FromRole="MediaNew" ToRole="Sentiment" />
+    <NavigationProperty Name="Status" Relationship="SocialCRMModel.FK_MediaNews_Status" FromRole="MediaNew" ToRole="Status" />
+    <NavigationProperty Name="Categories" Relationship="SocialCRMModel.MediaNewsCategories" FromRole="MediaNew" ToRole="Category" />
+    <Property Name="IsKEActivity" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="MediaNewsAttachment" Relationship="SocialCRMModel.FK_MediaNewsAttachment_MediaNews" FromRole="MediaNew" ToRole="MediaNewsAttachment" />
+  </EntityType>
+  <EntityType Name="MediaType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MediaChannels" Relationship="SocialCRMModel.FK_MediaChannels_MediaType" FromRole="MediaType" ToRole="MediaChannel" />
+    <NavigationProperty Name="MediaNews" Relationship="SocialCRMModel.FK_MediaNews_MediaType" FromRole="MediaType" ToRole="MediaNew" />
+    <NavigationProperty Name="NewsTypes" Relationship="SocialCRMModel.FK_MediaType_NewsType" FromRole="MediaType" ToRole="NewsType" />
+  </EntityType>
+  <EntityType Name="NewsRelatedTo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MediaNews" Relationship="SocialCRMModel.FK_MediaNews_NewsRelatedTo" FromRole="NewsRelatedTo" ToRole="MediaNew" />
+  </EntityType>
+  <EntityType Name="NewsType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NewsTypeName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MediaTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ChannelScores" Relationship="SocialCRMModel.FK_ChannelScores_NewsType" FromRole="NewsType" ToRole="ChannelScore" />
+    <NavigationProperty Name="MediaNews" Relationship="SocialCRMModel.FK_MediaNews_NewsType" FromRole="NewsType" ToRole="MediaNew" />
+    <NavigationProperty Name="MediaType" Relationship="SocialCRMModel.FK_MediaType_NewsType" FromRole="NewsType" ToRole="MediaType" />
+    <Property Name="IsKEActivity" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sentiment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ChannelScores" Relationship="SocialCRMModel.FK_ChannelScores_Sentiments" FromRole="Sentiment" ToRole="ChannelScore" />
+    <NavigationProperty Name="MediaNews" Relationship="SocialCRMModel.FK_MediaNews_Sentiments" FromRole="Sentiment" ToRole="MediaNew" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MediaNews" Relationship="SocialCRMModel.FK_MediaNews_Status" FromRole="Status" ToRole="MediaNew" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="SocialCRMModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SocialCRMModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="SocialCRMModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SocialCRMModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_AspNetUsers_CreatedBy">
+    <End Type="SocialCRMModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+    <End Type="SocialCRMModel.MediaNew" Role="MediaNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNew">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_AspNetUsersUpdatedBy">
+    <End Type="SocialCRMModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+    <End Type="SocialCRMModel.MediaNew" Role="MediaNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNew">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChannelScores_NewsType">
+    <End Type="SocialCRMModel.NewsType" Role="NewsType" Multiplicity="1" />
+    <End Type="SocialCRMModel.ChannelScore" Role="ChannelScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NewsType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChannelScore">
+        <PropertyRef Name="NewsTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChannelScores_Sentiments">
+    <End Type="SocialCRMModel.Sentiment" Role="Sentiment" Multiplicity="1" />
+    <End Type="SocialCRMModel.ChannelScore" Role="ChannelScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sentiment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChannelScore">
+        <PropertyRef Name="SentimentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_City">
+    <End Type="SocialCRMModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="SocialCRMModel.MediaNew" Role="MediaNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="MediaNew">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaChannels_MediaType">
+    <End Type="SocialCRMModel.MediaType" Role="MediaType" Multiplicity="1" />
+    <End Type="SocialCRMModel.MediaChannel" Role="MediaChannel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaChannel">
+        <PropertyRef Name="MediaTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_MediaChannels">
+    <End Type="SocialCRMModel.MediaChannel" Role="MediaChannel" Multiplicity="0..1" />
+    <End Type="SocialCRMModel.MediaNew" Role="MediaNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaChannel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNew">
+        <PropertyRef Name="ChannelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_MediaType">
+    <End Type="SocialCRMModel.MediaType" Role="MediaType" Multiplicity="1" />
+    <End Type="SocialCRMModel.MediaNew" Role="MediaNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNew">
+        <PropertyRef Name="MediaTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_NewsRelatedTo">
+    <End Type="SocialCRMModel.NewsRelatedTo" Role="NewsRelatedTo" Multiplicity="1" />
+    <End Type="SocialCRMModel.MediaNew" Role="MediaNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NewsRelatedTo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNew">
+        <PropertyRef Name="NewsRelation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_NewsType">
+    <End Type="SocialCRMModel.NewsType" Role="NewsType" Multiplicity="1" />
+    <End Type="SocialCRMModel.MediaNew" Role="MediaNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NewsType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNew">
+        <PropertyRef Name="NewsTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_Sentiments">
+    <End Type="SocialCRMModel.Sentiment" Role="Sentiment" Multiplicity="1" />
+    <End Type="SocialCRMModel.MediaNew" Role="MediaNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sentiment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNew">
+        <PropertyRef Name="SentimentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_Status">
+    <End Type="SocialCRMModel.Status" Role="Status" Multiplicity="0..1" />
+    <End Type="SocialCRMModel.MediaNew" Role="MediaNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="MediaNew">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaType_NewsType">
+    <End Type="SocialCRMModel.MediaType" Role="MediaType" Multiplicity="1" />
+    <End Type="SocialCRMModel.NewsType" Role="NewsType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NewsType">
+        <PropertyRef Name="MediaTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="SocialCRMModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="SocialCRMModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="EmailAssignedRights">
+    <End Type="SocialCRMModel.Email" Role="Email" Multiplicity="*" />
+    <End Type="SocialCRMModel.EmailRight" Role="EmailRight" Multiplicity="*" />
+  </Association>
+  <Association Name="MediaNewsCategories">
+    <End Type="SocialCRMModel.Category" Role="Category" Multiplicity="*" />
+    <End Type="SocialCRMModel.MediaNew" Role="MediaNew" Multiplicity="*" />
+  </Association>
+  <EntityType Name="EDReportFilter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChannelIds" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="FilterType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="GetMediaReportDrillDown_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="MediaType" Nullable="true" />
+    <Property Type="String" Name="NewsType" Nullable="true" />
+    <Property Type="String" Name="Channel" Nullable="true" />
+    <Property Type="String" Name="Sentiment" Nullable="true" />
+    <Property Type="String" Name="NewsRelation" Nullable="true" />
+    <Property Type="Boolean" Name="IsKEActivity" Nullable="true" />
+    <Property Type="DateTime" Name="NewsDate" Nullable="true" />
+    <Property Type="Time" Name="NewsTime" Nullable="true" />
+    <Property Type="Int32" Name="NoiseIndex" Nullable="true" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" />
+    <Property Type="Int32" Name="TimeLag" Nullable="true" />
+    <Property Type="String" Name="ParValue" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Script" Nullable="true" />
+    <Property Type="String" Name="FileType" Nullable="true" />
+    <Property Type="String" Name="FileName" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="MediaNewsAttachment">
+    <Key>
+      <PropertyRef Name="MediaNewsId" />
+    </Key>
+    <Property Name="MediaNewsId" Type="Int32" Nullable="false" />
+    <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ContentType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MediaNew" Relationship="SocialCRMModel.FK_MediaNewsAttachment_MediaNews" FromRole="MediaNewsAttachment" ToRole="MediaNew" />
+  </EntityType>
+  <Association Name="FK_MediaNewsAttachment_MediaNews">
+    <End Type="SocialCRMModel.MediaNew" Role="MediaNew" Multiplicity="1" />
+    <End Type="SocialCRMModel.MediaNewsAttachment" Role="MediaNewsAttachment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="MediaNew">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNewsAttachment">
+        <PropertyRef Name="MediaNewsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

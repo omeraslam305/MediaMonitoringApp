@@ -1,0 +1,328 @@
+﻿<style>
+    .truncate-item{
+        max-width: 145px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;
+    }
+</style>
+<div class="wrapper">
+    <div ui-view="Header"></div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="min-height:650px !important;" ng-app="CRMApp" id="MediaDashboardController" ng-controller="MediaDashboardController">
+        <!-- header starts here -->
+        <div class="container-fluid page_name">
+            <div class="col-sm-10"><i class="fa fa-flag"></i> Data Archive</div>
+        </div>
+        <!-- header ends here -->
+        <div class="container-fluid padding_set">
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <!--<div class="box-header with-border">
+                        <div class="col-sm-6 zro"><i class="fa fa-bullhorn"></i> MEDIA NEWS</div>
+                        
+                        <div class="col-sm-2 zro"style="text-align: right;">
+                            <button style="height: 25px;padding: 3px 10px 3px 10px !important;" type="button" class="btn btn-primary button_round" ng-click="AddMediaNews()">
+                            <i class="fa fa-plus"></i> ADD NEW</button>
+                        </div>
+                        <div class="col-sm-2 zro" style="text-align: right;">
+                            <button style="height: 25px;padding: 3px 10px 3px 10px !important;" type="button" class="btn btn-primary button_round" ng-click="ExportToExcel()">
+                                <i class="fa fa-plus"></i> EXPORT TO EXCEL
+                            </button>
+                        </div>
+                        <div class="col-sm-2 zro" style="text-align: right;">
+                            <button style="height: 25px;padding: 3px 10px 3px 10px !important;" type="button" class="btn btn-primary button_round" ng-click="EmailRecords()">
+                                <i class="fa fa-plus"></i> EMAIL RECORDS
+                            </button>
+                        </div>
+                    </div>-->
+                    <div class="box-header with-border" style="line-height:26px !important;">
+                        <div class="col-sm-8 zro"><i class="fa fa-bullhorn"></i> MEDIA APPLICATION FORM</div>
+                        <div class="col-sm-4">
+                            <div class="" style=" float:right;" role="group" aria-label="...">
+                                <button type="button" class="btn btn-addnew btn-sm" title="ADD NEW" ng-click="AddMediaNews()"><i class="fa fa-plus"></i></button>
+                                <button type="button" class="btn btn-mailrec btn-sm" title="EMAIL RECORDS" ng-click="DownloadEmailRecords(true)"><i class="fa fa-envelope"></i></button>
+                                <button type="button" class="btn btn-expexcell btn-sm" title="EXPORT TO EXCEL" ng-click="ExportToExcel()"><i class="fa fa-cloud-upload"></i></button>
+                                <button type="button" class="btn btn-pdfcell btn-sm" title="EXPORT PDF" ng-click="DownloadEmailRecords(false)"><i class="fa fa-cloud-upload"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="box-body no-padding">
+                            <div class="col-md-12">
+                                <div class="col-md-2 zro_left" title="Select Media Type">
+                                    <div id="multisel" style="margin-bottom:8px !important;">
+                                        <!--Select Media Type<br>-->
+                                        <div class='sel_menu' ng-dropdown-multiselect1="" events="mediaEventListeners" options="MediaTypeList"
+                                             selected-model="mediaType" checkboxes="true" translation-texts="example5customTextsMediaType"
+                                             extra-settings="groupsettings">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 zro_left" title="Select News Type">
+                                    <div id="multisel" style="margin-bottom:8px !important;">
+                                        <!--Select News Type<br>-->
+                                        <div class='sel_menu' ng-dropdown-multiselect="" events="dropEventListeners" options="NewsTypeList"
+                                             selected-model="newsType" checkboxes="true" translation-texts="example5customTextsNewsType">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 zro_left">
+                                    <div id="multisel" style="margin-bottom:8px !important;">
+                                        <!--Select Channel<br>-->
+                                        <div class='sel_menu' ng-dropdown-multiselect="" events="dropEventListeners" options="ChannelsList"
+                                             selected-model="channelType" checkboxes="true" translation-texts="example5customTextsChannel">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 zro_left">
+                                    <div id="multisel" style="margin-bottom:8px !important;">
+                                        <!--Select Categories<br>-->
+                                        <div class='sel_menu' ng-dropdown-multiselect="" events="dropEventListeners" options="CategoriesList" 
+                                             selected-model="categoryModel" checkboxes="true" translation-texts="example5customTextsCategory" 
+                                             scrollable="true" scrollableHeight="300px">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 zro_left">
+                                    <div id="multisel" style="margin-bottom:8px !important;" title="Select Sentiment">
+                                        <!--Select Sentiments<br>-->
+                                        <div class='sel_menu' ng-dropdown-multiselect="" events="dropEventListeners" options="SentimentsList"
+                                             selected-model="sentimentType" checkboxes="true" translation-texts="example5customTextsSentiment">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 zro_left">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        <div class='sel_menu' ng-dropdown-multiselect="" options="RelevanceList" events="dropEventListeners"
+                                             selected-model="relevanceModel" extra-settings="multiSelectSettings" checkboxes="true"
+                                             translation-texts="example5customTextsRelavance"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 zro_left">
+                                    <div id="multisel" style="margin-bottom:8px !important;" title="Select Created By">
+                                        <!--Created By<br>-->
+                                        <div class='sel_menu' ng-dropdown-multiselect="" events="dropEventListeners" options="CreatedByUsersList"
+                                             selected-model="createdBy" checkboxes="true" translation-texts="example5customTextsCreatedBy"
+                                             scrollable="true" scrollableHeight="300px">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 zro_left">
+                                    <div class="demo" style="">
+                                        <input id="script" class="form-control" style="font-size:12px; height:30px;" type="text" placeholder="Script" ng-model="script" ng-keyup="$event.keyCode == 13 && filterMediaRecords()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3 zro_left">
+                                    <div class="demo">
+                                        <input style="font-size:12px; height:30px;" date-range-picker class="form-control date-picker" type="text" min="'2014-02-23'" max="maxDate" options="opts" ng-model="date" />
+                                        <!--<input date-range-picker="" style="font-size:12px; height:30px;" id="daterange1" name="daterange1" class="form-control date-picker" type="text" ng-model="date" required="">-->
+                                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-1" style="margin-left:5px">
+                                    <button type="button" style="margin-left: 5px;" ng-click="resetMediaRecords()" class="btn btn-primary button_round3  btn_height3a"><i class="fa fa-refresh"></i> RESET</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="padding: 0px;">
+                                <div class="col-md-10" style="padding: 0px;">
+                                    Total Records: <strong>{{RecordsCount}}</strong>
+                                </div>
+                                <div class="col-md-2" style="padding: 0px;">
+                                    <a id="select-all" href="javascript:" ng-click="checkUncheckAll(true)" style="display:inline-block">Select All</a> &nbsp;|&nbsp;
+                                    <a id="unselect-all" href="javascript:" ng-click="checkUncheckAll(false)" style="display:inline-block">Unselect All</a>
+                                </div>
+                            </div>
+                                                        
+                            <div  id="grplists">
+                                <!--<div class="col-md-12 table-bordered pad_sett {{GetStyle($index)}}" ng-repeat="news in MediaNewsList">
+                                    <div class="col-md-12 zro">
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Media Type:</strong><br>{{news.MediaType}}<br>
+                                            <strong>News Type:</strong> <br>
+                                            <div class="news-type-container" style="width: 145px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;vertical-align: bottom;">
+                                                {{news.NewsType}}<br>
+                                            </div>  
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Date:</strong><br> {{news.TransmissionDate}}<br>
+                                            <strong>Times:</strong> <br>{{news.TransmissionTime}}
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Channel:</strong> <br>{{news.Channel}}<br>
+                                            <strong>City: </strong><br>{{news.City}}
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Category(s):</strong> <br>
+                                            <div class="categories-container" style="width: 145px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;vertical-align: bottom;">
+                                                {{news.Categories}}<br>
+                                            </div>                                                
+                                                <strong>Sentiment: </strong><br>{{news.Sentiment}}
+                                            </div> 
+                                        <div class="col-md-2 zro_left">
+                                            <div class="script-container"><strong>Script:</strong><br>
+                                                <span ng-if="news.Script.length > 0 && news.MediaType != 'Print'">{{news.Script.substring(0, 10)}} ...
+                                                    <a href="javascript:" ng-click="openScript(news.Id)"> ReadMore</a>
+                                                </span>
+                                            </div><br>
+                                            <strong>Clipping Upload:</strong><br>
+                                            <a href="javascript:" ng-show="news.IsAttachmentUploaded" data-localize="DOWNLOAD" ng-click="downloadAttachment(news.Id)"><i class="fa fa-paperclip"></i></a>
+                                            <div style="width: 145px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;vertical-align: bottom;">
+                                                <span ng-show="news.MediaType == 'Print' && news.IsAttachmentUploaded">{{news.AttachmentName}}</span>
+                                            </div>
+                                            <span ng-show="news.MediaType == 'Print' && !news.IsAttachmentUploaded">N/A</span>
+                                        </div>
+                                        <div class="col-md-1 zro_left">
+                                            <strong>PR Value:</strong><br> {{news.PrValue}}<br>
+                                            <strong>Noise Index:</strong><br>
+                                            {{news.NoiseIndex}}
+                                        </div>
+                                        <div class="col-md-1 zro_left action-div" style="padding-left: 20px !important;"><strong>Actions:</strong><br> 
+                                            <a href="#/Media/AddMediaNews?id={{news.Id}}" title="Edit"><i class="fa fa-pencil"></i></a> 
+                                            <a href="javascript:" ng-click="deleteMediaNews(news.Id)" title="Delete" style="margin-left:5px;"><i class="fa fa-trash"></i></a><br>
+                                            <input type="checkbox" name="selected-item" class="selected-item" style="visibility: visible;margin-left:5px;" />
+                                            <span id="news-id" style="display:none;">{{news.Id}}</span>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="media_table_ke table">
+                                    <tr>
+                                        <th width="10%">Media Type</th>
+                                        <th width="9%">News Type</th>
+                                        <th width="6%">Date/Time</th>
+                                        <th width="11%">Channel</th>
+                                        <th width="3%">City</th>
+                                        <th width="10%">Categorie(s)</th>
+                                        <th width="5%" align="center">Sentiments</th>
+                                        <th width="25%">Script</th>
+                                        <th width="8%" class="greent">PR Value</th>
+                                        <th width="7%" class="bluet">N-Index</th>
+                                        <th width="6%" class="oranget">Actions</th>
+
+                                    </tr>
+                                    <tr ng-repeat="news in MediaNewsList">
+                                        <td>{{news.MediaType}}</td>
+                                        <td>{{news.NewsType}}</td>
+                                        <td>
+                                            {{news.TransmissionDate}}<br>
+                                            <span>{{news.TransmissionTime}}</span>
+                                        </td>
+                                        <td>{{news.Channel}}</td>
+                                        <td>{{news.City}}</td>
+                                        <td><span class="truncate-item">{{news.Categories}}</span></td>
+                                        <td align="center"><i class="fa {{GetSentimentStyle(news.Sentiment)}}"></i></td>
+                                        <td>
+                                            <span ng-if="news.Script.length > 0">
+                                                {{news.Script.substring(0, 10)}} ...<a href="javascript:" ng-click="openScript(news.Id)"> ReadMore</a>                                                
+                                            </span>
+                                            <a href="javascript:" ng-show="news.IsAttachmentUploaded" data-localize="DOWNLOAD" ng-click="downloadAttachment(news.Id)">
+                                                <span class="truncate-item" ng-show="news.MediaType == 'Print' && news.IsAttachmentUploaded">{{news.ClippingAttachment.FileName}}</span>
+                                            </a>
+                                            <span ng-show="news.MediaType == 'Print' && !news.IsAttachmentUploaded">N/A</span>                                            
+                                        </td>
+                                        <td align="center"><span class="greentxt">{{news.PrValue}}</span></td>
+                                        <td align="center"><span class="bluetxt">{{news.NoiseIndex}}</span></td>
+                                        <td align="center">
+                                            <div class="action-div">
+                                                <a href="#/Media/AddMediaNews?id={{news.Id}}"><i class="fa fa-pencil edit"></i></a>
+                                                <a href="javascipt:" ng-click="deleteMediaNews(news.Id)" title="Delete"><i class="fa fa-trash del"></i></a>
+                                                <input name="selected-item" type="checkbox" value="">
+                                                <span id="news-id" style="display:none;">{{news.Id}}</span>
+                                            </div>
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination pagination-sm">
+                                        <li>
+                                            <a href="javascript:" ng-class="{disabled:(pageNumber == 0)}" ng-click="goToPreviousPage()" class="disabled">Previous</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:" ng-click="goToNextPage()">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+    </div>
+</div>
+<!-- Main content -->
+<div ui-view="Footer"></div>
+<!--<script type="text/javascript">
+    $(function () {
+		$('#mediaType').multiselect({
+            includeSelectAllOption: true,
+			buttonWidth: '100%',
+        });
+
+		$('#newsType').multiselect({
+            includeSelectAllOption: true,
+			buttonWidth: '100%',
+        });
+
+
+        $('#catSelect').multiselect({
+            includeSelectAllOption: true,
+			buttonWidth: '100%',
+        });
+
+		$('#ChanSelect').multiselect({
+            includeSelectAllOption: true,
+			buttonWidth: '100%',
+        });
+
+		$('#sentSelect').multiselect({
+            includeSelectAllOption: true,
+			buttonWidth: '100%',
+        });
+    });
+</script>-->
+
+<script type="text/javascript">
+    //$(function () {
+        //$('#grplists').slimscroll({
+        //    height: '800px',
+        //    disableFadeOut: true
+        //}).bind('slimscroll', function (e, pos) {
+        //    if (pos == "bottom") {
+        //        angular.element('#MediaDashboardController').scope().loadMoreNews();
+        //        angular.element('#MediaDashboardController').scope().$apply();
+        //    }
+        //});        
+    //});
+    $(document).ready(function () {
+        //var today = new Date();
+        //var last90Days = new Date();
+        //last90Days.setDate(today.getDate() - 90);
+        //$('#ctrlanalyticdatepicker').daterangepicker();
+        //$('#btnApplyDateRange').bind('click', function () {
+        //    var startDate = $('input:text[name=daterangepicker_start]').val();
+        //    var endDate = $('input:text[name=daterangepicker_end]').val();
+        //    var startDateArray = startDate.split('/');
+        //    var endDateArray = endDate.split('/');
+
+        //    if (parseInt(startDateArray[0]) > parseInt(endDateArray[0])) {
+        //        var tempDate = startDate;
+        //        startDate = endDate;
+        //        endDate = tempDate;
+        //    }
+        //    else if (parseInt(startDateArray[0]) == parseInt(endDateArray[0]) && parseInt(startDateArray[1]) > parseInt(endDateArray[1])) {
+        //        var tempDate = startDate;
+        //        startDate = endDate;
+        //        endDate = tempDate;
+        //    }
+
+        //});
+    });
+
+</script>

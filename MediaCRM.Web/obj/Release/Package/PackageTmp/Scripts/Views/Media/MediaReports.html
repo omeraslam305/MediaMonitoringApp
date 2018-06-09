@@ -1,0 +1,232 @@
+﻿<div class="wrapper">
+    <div ui-view="Header"></div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="min-height:650px !important;" ng-app="CRMApp" id="ReportController" ng-controller="ReportController">
+        <!-- header starts here -->
+        <div class="container-fluid page_name">
+            <div class="col-sm-10"><i class="fa fa-flag"></i> Media Reports</div>
+        </div>
+        <!-- header ends here -->
+        <div class="container-fluid padding_set">
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <div class="col-sm-10 zro"><i class="fa fa-bullhorn"></i> REPORTS</div>
+                        <div class="col-sm-2">
+                            <div class="" style=" float:right;" role="group" aria-label="...">
+                                <button type="button" class="btn btn-pdfcell btn-sm" title="EXPORT PDF" ng-click="ConvertPDF(false)"><i class="fa fa-cloud-upload"></i></button>
+                                <button type="button" class="btn btn-mailrec btn-sm" title="EMAIL PDF" ng-click="ConvertPDF(true)"><i class="fa fa-envelope"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="box-body no-padding">
+                            <div class="col-md-12">
+                                <div class="col-md-3 zro_left" title="Select Media Type">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        <div class='sel_menu' ng-dropdown-multiselect1="" events="mediaEventListeners" options="MediaTypeList"
+                                             selected-model="mediaType" checkboxes="true" translation-texts="example5customTextsMediaType"
+                                             extra-settings="groupsettings">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 zro_left">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        <div class='sel_menu' ng-dropdown-multiselect="" options="NewsTypeList" events="newsEventListeners"
+                                             selected-model="newsType" extra-settings="multiSelectSettings" checkboxes="true" 
+                                             translation-texts="example5customTextsNewsType">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 zro_left">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        <div class='sel_menu' ng-dropdown-multiselect="" options="ChannelsList" events="channelEventListeners"
+                                             selected-model="channelType" extra-settings="multiSelectSettings" checkboxes="true" 
+                                             translation-texts="example5customTextsChannel">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 zro_left">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        <div class='sel_menu' ng-dropdown-multiselect="" options="CategoriesList" events="categoryEventListeners"
+                                             selected-model="categoryModel" extra-settings="multiSelectSettings" checkboxes="true" 
+                                             translation-texts="example5customTextsCategories">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 zro_left">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        <div class='sel_menu' ng-dropdown-multiselect="" options="RelevanceList" events="relavanceEventListeners"
+                                             selected-model="relevanceModel" extra-settings="multiSelectSettings" checkboxes="true" 
+                                             translation-texts="example5customTextsRelavance"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 zro_left">
+                                    <div class="demo" style="">
+                                        <input id="script" class="form-control" style="font-size:12px; height:30px;" type="text" placeholder="Script" ng-model="script" ng-keyup="$event.keyCode == 13 && filterMediaRecords()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 zro_left">
+                                    <div class="demo">
+                                        <input style="height: 30px;" id="ctrlanalyticdatepicker" date-range-picker class="form-control date-picker" type="text" options="opts" ng-model="date" />
+                                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                    </div>
+                                </div>
+                                <!--<div class="col-md-1">
+                                    <button type="button" style="height: 30px !important;" ng-click="filterMediaRecords()" class="btn btn-primary button_round  btn_height3"><i class="fa fa-filter"></i> FILTER</button>
+                                </div>-->
+                                <div class="col-md-2">
+                                    <button type="button" style="height: 30px !important;" ng-click="resetMediaRecords()" class="btn btn-primary button_round  btn_height3"><i class="fa fa-refresh"></i> RESET</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 report_headings top_grp_marg">
+                                <div class="col-md-4  text-center">
+                                    <strong>Total Print PR Value</strong><br>
+                                    <div class="data_circle1 ng-binding">{{TotalPRValue}}</div>
+                                </div>
+                                <div class="col-md-4">
+                                    <h1 style="text-align:right;margin-right: 25px;">Media News</h1>
+                                </div>
+                                <div class="col-md-4 zro_left" style="text-align: -webkit-right;">
+                                    <div id="multisel" style="margin-bottom:10px !important;width:90%;">
+                                        <div class='sel_menu' ng-dropdown-multiselect1="" options="FilterListMediaNews" events="filterMediaNewsEventListeners"
+                                             selected-model="filterTypeMediaNews" checkboxes="true" translation-texts="example5customTexts"
+                                             extra-settings="groupsettings">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="single-chart" class="col-md-12 report_headings top_grp_marg news-chart">
+                                    <highchart id="chart-news" config="MediaNewsChartConfig" class="span10 sum-wise-report"></highchart>
+                                </div>
+                            </div>          <!-- Media News -->
+
+                            <div class="col-md-12 report_headings top_grp_marg top_liner" style="margin-top: 15px !important;">
+                                <div class="col-md-8">
+                                    <h1 style="text-align:right;margin-right: 25px;">Noise Frequency Analysis Summation</h1>
+                                </div>
+                                <div class="col-md-4 zro_left" style="text-align: -webkit-right;">
+                                    <div id="multisel" style="margin-bottom:10px !important;width:90%;">
+                                        <div class='sel_menu' ng-dropdown-multiselect1="" options="FilterListSum" events="filterNFISumEventListeners"
+                                             selected-model="filterTypeNFISum" checkboxes="true" translation-texts="example5customTexts"
+                                             extra-settings="groupsettings">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 report_headings top_grp_marg sum-chart">
+                                    <highchart id="chart-sum" config="NoiseFrequencySumChartConfig" class="span10"></highchart>
+                                </div>
+                            </div><!-- Noise Frequency Index Summation -->
+
+                            <div class="col-md-12 report_headings top_grp_marg top_liner" style="margin-top: 15px !important;">
+                                <div class="col-md-8">
+                                    <h1 style="text-align:right;margin-right: 25px;">Noise Frequency Index Individual</h1>
+                                </div>
+                                <div class="col-md-4 zro_left" style="text-align: -webkit-right;">
+                                    <div id="multisel" style="margin-bottom:10px !important;width:90%;">
+                                        <div class='sel_menu' ng-dropdown-multiselect1="" options="FilterListInd" events="filterNFIIndEventListeners"
+                                             selected-model="filterTypeNFIInd" checkboxes="true" translation-texts="example5customTexts"
+                                             extra-settings="groupsettings">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 report_headings top_grp_marg ind-chart">
+                                    <highchart id="chart3" config="NoiseFrequencyIndividualChartConfig" class="span10"></highchart>
+                                </div>
+                            </div><!-- Noise Frequency Index Individual -->
+
+                            <div class="col-md-12 report_headings top_grp_marg">
+                                <div class="col-md-8">
+                                    <h1 style="text-align:right;margin-right: 25px;">Sentiment Analysis</h1>
+                                </div>
+                                <div class="col-md-4 zro_left" style="text-align: -webkit-right;">
+                                    <div id="multisel" style="margin-bottom:10px !important;width:90%;">
+                                        <div class='sel_menu' ng-dropdown-multiselect1="" options="FilterListSentiment" events="filterEventListeners"
+                                             selected-model="filterType" checkboxes="true" translation-texts="example5customTexts"
+                                             extra-settings="groupsettings">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="single-chart" class="col-md-12 report_headings top_grp_marg sentiment-chart">
+                                    <highchart id="chart1" config="SentimentAnalysisChartConfig" class="span10 sum-wise-report"></highchart>
+                                </div>
+                            </div>          <!-- Sentiment Analysis -->
+
+                            <div class="col-md-12 report_headings top_grp_marg">
+                                <div class="col-md-8">
+                                    <h1 style="text-align:right;margin-right: 25px;">Relevance Analysis</h1>
+                                </div>
+                                <div class="col-md-4 zro_left" style="text-align: -webkit-right;">
+                                    <div id="multisel" style="margin-bottom:10px !important;width:90%;">
+                                        <div class='sel_menu' ng-dropdown-multiselect1="" options="FilterListRel" events="filterRelEventListeners"
+                                             selected-model="filterTypeRel" checkboxes="true" translation-texts="example5customTexts"
+                                             extra-settings="groupsettings">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="single-chart" class="col-md-12 report_headings top_grp_marg relevance-chart">
+                                    <highchart id="chart1" config="RelevanceAnalysisChartConfig" class="span10 sum-wise-report"></highchart>
+                                </div>
+                            </div>          <!-- Relevance Analysis -->
+
+                            <div class="col-md-12 report_headings top_grp_marg">
+                                <div class="col-md-8">
+                                    <h1 style="text-align:right;margin-right: 25px;">Category Analysis</h1>
+                                </div>
+                                <div class="col-md-4 zro_left" style="text-align: -webkit-right;">
+                                    <div id="multisel" style="margin-bottom:10px !important;width:90%;">
+                                        <div class='sel_menu' ng-dropdown-multiselect1="" options="FilterListCat" events="filterCatEventListeners"
+                                             selected-model="filterTypeCat" checkboxes="true" translation-texts="example5customTexts"
+                                             extra-settings="groupsettings">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="single-chart" class="col-md-12 report_headings top_grp_marg category-chart">
+                                    <highchart id="chart1" config="CategoryAnalysisChartConfig" class="span10 sum-wise-report"></highchart>
+                                </div>
+                            </div>          <!-- Category Analysis -->
+
+                            <div class="col-md-12 report_headings top_grp_marg">
+                                <div class="col-md-8">
+                                    <h1 style="text-align:right;margin-right: 25px;">NewsType Analysis</h1>
+                                </div>
+                                <div class="col-md-4 zro_left" style="text-align: -webkit-right;">
+                                    <div id="multisel" style="margin-bottom:10px !important;width:90%;">
+                                        <div class='sel_menu' ng-dropdown-multiselect1="" options="FilterListNT" events="filterNTEventListeners"
+                                             selected-model="filterTypeNT" checkboxes="true" translation-texts="example5customTexts"
+                                             extra-settings="groupsettings">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="single-chart" class="col-md-12 report_headings top_grp_marg newstype-chart">
+                                    <highchart id="chart1" config="NewsTypeAnalysisChartConfig" class="span10 sum-wise-report"></highchart>
+                                </div>
+                            </div>          <!-- NewsType Analysis -->
+
+                            <div class="col-md-12 report_headings top_grp_marg top_liner" ng-show="$parent.MediaAdmin" style="margin-top: 15px !important;">
+                                <div class="col-md-8">
+                                    <h1 style="text-align:right;margin-right: 25px;">Agent Performance</h1>
+                                </div>
+                                <div class="col-md-4 zro_left" style="text-align: -webkit-right;">
+                                    <div id="multisel" style="margin-bottom:10px !important;width:90%;">
+                                        <div class='sel_menu' ng-dropdown-multiselect1="" options="FilterListAgent" events="filterAgentEventListeners"
+                                             selected-model="filterTypeAgent" checkboxes="true" translation-texts="example5customTexts"
+                                             extra-settings="groupsettings">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="single-chart" class="col-md-12 report_headings top_grp_marg agent-chart">
+                                    <highchart id="chart4" config="AgentPerformanceChartConfig" class="span10"></highchart>
+                                </div>
+                            </div><!-- Agent Performance -->
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+    </div>
+</div>
+<!-- Main content -->
+<div ui-view="Footer"></div>

@@ -1,0 +1,9 @@
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\bin\Release\CRM.Common.dll.config
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\bin\Release\CRM.Common.dll
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\bin\Release\CRM.Common.pdb
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\bin\Release\DocumentFormat.OpenXml.dll
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\bin\Release\EPPlus.dll
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\bin\Release\Excel.dll
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\obj\Release\CRM.Common.csprojResolveAssemblyReference.cache
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\obj\Release\CRM.Common.dll
+D:\Projects\TFS\KE-CRM-Media\CRM.Common\obj\Release\CRM.Common.pdb

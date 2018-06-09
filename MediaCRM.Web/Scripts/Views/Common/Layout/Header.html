@@ -1,0 +1,77 @@
+﻿<div id="HeaderController" ng-controller="HeaderController">
+
+
+    <script src="/Content/js/appSideScroll.js"></script>
+    <header class="main-header">
+        <!-- Logo -->
+        <span class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><img src="/Content/images/logo_sa_ke.png"></span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg" style="margin-left:-15px;"><img src="/Content/images/main_logo_ke.png"></span>
+        </span>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="" class="sidebar-toggle" data-toggle="offcanvas" role="button" style="margin-top:13px;">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+            </div>
+
+        </nav>
+
+        <style>
+            .unread_notif{
+                background-color:#e7f5f6;
+            }
+        </style>
+    </header>
+    <!-- =============================================== -->
+
+    <aside class="main-sidebar">
+
+        <section class="sidebar">
+            <div class="sidebar_height" style="border-bottom:solid 1px #4a6071;"></div>
+            <div class="user-panel" style="background-color:#208ec3;">
+                <div class="pull-left image"> <img id="headerUserImage" ng-src="{{UserImage!='' && UserImage||'/Content/img/user_pic.jpg'}}" class="img-circle" alt="User Image"> </div>
+                <div class="pull-left info">
+                    <p><a href="#/Media/ProfileSettings" style="color: #FFF !important;"><i class="fa fa-circle" style="color: #a5f146 !important"></i> {{$parent.UserObject.Name}}</a></p>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="treeview" ng-class="navClass('/#/Media/AddMediaNews')">
+                    <a href="">
+                        <i class="fa fa-plus"></i> <span>
+                            NEW RECORD<br>
+                        </span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu left_nav_sub">
+                        <!--<div id="inboxer" class="left_nav_subs">-->
+                        <!--Used to put scroll in menu-->
+                        <div class="left_nav_subs">
+                            <li ng-repeat="y in subLinks" ng-hide="y.hide" ng-class="navClass('{{y.url}}{{y.parameter}}')">
+                                <a href="{{y.url}}{{y.parameter}}" class="pad_left" target="_self">{{y.Title}}</a>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+
+                <li ng-hide="x.hide" ng-repeat="x in navLinks" ng-class="navClass(x.url)">
+                    <a href="{{x.url}}">
+                        <i class="fa {{x.icon}}"></i> <span>
+                            {{x.Title |uppercase}}<br>
+                    </a>
+                </li>
+
+                <li class="treeview">
+                    <a href="" ng-click="logout()"><i class="fa fa-sign-out"></i><span>LOGOUT</span></a>
+                </li>
+            </ul>
+
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+</div>

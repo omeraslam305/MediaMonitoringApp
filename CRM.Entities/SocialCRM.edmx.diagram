@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e9a7ebe29c4f46f79d75e7e4ee027e91" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="SocialCRMModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SocialCRMModel.AspNetRole" Width="1.5" PointX="0.75" PointY="15" />
+        <EntityTypeShape EntityType="SocialCRMModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="16.125" />
+        <EntityTypeShape EntityType="SocialCRMModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="13.5" />
+        <EntityTypeShape EntityType="SocialCRMModel.AspNetUser" Width="1.5" PointX="3" PointY="13.375" />
+        <EntityTypeShape EntityType="SocialCRMModel.Category" Width="1.5" PointX="3" PointY="26" />
+        <EntityTypeShape EntityType="SocialCRMModel.ChannelScore" Width="1.5" PointX="8.25" PointY="6.875" />
+        <EntityTypeShape EntityType="SocialCRMModel.City" Width="1.5" PointX="3" PointY="21.375" />
+        <EntityTypeShape EntityType="SocialCRMModel.Email" Width="1.5" PointX="7.75" PointY="0.875" />
+        <EntityTypeShape EntityType="SocialCRMModel.EmailRight" Width="1.5" PointX="10" PointY="0.875" />
+        <EntityTypeShape EntityType="SocialCRMModel.MediaChannel" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="SocialCRMModel.MediaNew" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="SocialCRMModel.MediaType" Width="1.5" PointX="0.75" PointY="5.875" />
+        <EntityTypeShape EntityType="SocialCRMModel.NewsRelatedTo" Width="1.5" PointX="3" PointY="19" />
+        <EntityTypeShape EntityType="SocialCRMModel.NewsType" Width="1.5" PointX="3" PointY="7.125" />
+        <EntityTypeShape EntityType="SocialCRMModel.Sentiment" Width="1.5" PointX="3" PointY="10.875" />
+        <EntityTypeShape EntityType="SocialCRMModel.Status" Width="1.5" PointX="3" PointY="23.625" />
+        <AssociationConnector Association="SocialCRMModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="SocialCRMModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="SocialCRMModel.FK_MediaNews_AspNetUsers_CreatedBy" />
+        <AssociationConnector Association="SocialCRMModel.FK_MediaNews_AspNetUsersUpdatedBy" />
+        <AssociationConnector Association="SocialCRMModel.FK_ChannelScores_NewsType" />
+        <AssociationConnector Association="SocialCRMModel.FK_ChannelScores_Sentiments" />
+        <AssociationConnector Association="SocialCRMModel.FK_MediaNews_City" />
+        <AssociationConnector Association="SocialCRMModel.FK_MediaChannels_MediaType" />
+        <AssociationConnector Association="SocialCRMModel.FK_MediaNews_MediaChannels" />
+        <AssociationConnector Association="SocialCRMModel.FK_MediaNews_MediaType" />
+        <AssociationConnector Association="SocialCRMModel.FK_MediaNews_NewsRelatedTo" />
+        <AssociationConnector Association="SocialCRMModel.FK_MediaNews_NewsType" />
+        <AssociationConnector Association="SocialCRMModel.FK_MediaNews_Sentiments" />
+        <AssociationConnector Association="SocialCRMModel.FK_MediaNews_Status" />
+        <AssociationConnector Association="SocialCRMModel.FK_MediaType_NewsType" />
+        <AssociationConnector Association="SocialCRMModel.AspNetUserRoles" />
+        <AssociationConnector Association="SocialCRMModel.EmailAssignedRights" />
+        <AssociationConnector Association="SocialCRMModel.MediaNewsCategories" />
+        <EntityTypeShape EntityType="SocialCRMModel.EDReportFilter" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SocialCRMModel.MediaNewsAttachment" Width="1.5" PointX="7.5" PointY="4.125" />
+        <AssociationConnector Association="SocialCRMModel.FK_MediaNewsAttachment_MediaNews" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

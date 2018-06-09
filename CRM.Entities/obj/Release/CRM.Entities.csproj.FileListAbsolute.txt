@@ -1,0 +1,12 @@
+D:\Projects\TFS\KE-CRM-Media\CRM.Entities\bin\Release\CRM.Entities.dll.config
+D:\Projects\TFS\KE-CRM-Media\CRM.Entities\bin\Release\CRM.Entities.dll
+D:\Projects\TFS\KE-CRM-Media\CRM.Entities\bin\Release\CRM.Entities.pdb
+D:\Projects\TFS\KE-CRM-Media\CRM.Entities\bin\Release\EntityFramework.dll
+D:\Projects\TFS\KE-CRM-Media\CRM.Entities\bin\Release\EntityFramework.SqlServer.dll
+D:\Projects\TFS\KE-CRM-Media\CRM.Entities\bin\Release\Newtonsoft.Json.dll
+D:\Projects\TFS\KE-CRM-Media\CRM.Entities\bin\Release\EntityFramework.xml
+D:\Projects\TFS\KE-CRM-Media\CRM.Entities\bin\Release\EntityFramework.SqlServer.xml
+D:\Projects\TFS\KE-CRM-Media\CRM.Entities\bin\Release\Newtonsoft.Json.xml
+D:\Projects\TFS\KE-CRM-Media\CRM.Entities\obj\Release\CRM.Entities.csprojResolveAssemblyReference.cache
+D:\Projects\TFS\KE-CRM-Media\CRM.Entities\obj\Release\CRM.Entities.dll
+D:\Projects\TFS\KE-CRM-Media\CRM.Entities\obj\Release\CRM.Entities.pdb

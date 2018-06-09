@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.Entities", "CRM.Entities\CRM.Entities.csproj", "{90E69B45-F469-4C6D-8AD7-8C2188C9171B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.Common", "CRM.Common\CRM.Common.csproj", "{4FD31E43-87DD-4C24-946B-3CEA3771AA4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaCRM.Web", "MediaCRM.Web\MediaCRM.Web.csproj", "{1CCBAE7F-8D92-4590-90B6-028AB9027D13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90E69B45-F469-4C6D-8AD7-8C2188C9171B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90E69B45-F469-4C6D-8AD7-8C2188C9171B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90E69B45-F469-4C6D-8AD7-8C2188C9171B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90E69B45-F469-4C6D-8AD7-8C2188C9171B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FD31E43-87DD-4C24-946B-3CEA3771AA4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FD31E43-87DD-4C24-946B-3CEA3771AA4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FD31E43-87DD-4C24-946B-3CEA3771AA4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FD31E43-87DD-4C24-946B-3CEA3771AA4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CCBAE7F-8D92-4590-90B6-028AB9027D13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CCBAE7F-8D92-4590-90B6-028AB9027D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CCBAE7F-8D92-4590-90B6-028AB9027D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CCBAE7F-8D92-4590-90B6-028AB9027D13}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://10.174.5.134:9080/tfs/vw-tech-ke
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CRM.Entities\\CRM.Entities.csproj
+		SccProjectName1 = CRM.Entities
+		SccLocalPath1 = CRM.Entities
+		SccProjectUniqueName2 = CRM.Common\\CRM.Common.csproj
+		SccProjectName2 = CRM.Common
+		SccLocalPath2 = CRM.Common
+		SccProjectUniqueName3 = MediaCRM.Web\\MediaCRM.Web.csproj
+		SccProjectName3 = MediaCRM.Web
+		SccLocalPath3 = MediaCRM.Web
+	EndGlobalSection
+EndGlobal

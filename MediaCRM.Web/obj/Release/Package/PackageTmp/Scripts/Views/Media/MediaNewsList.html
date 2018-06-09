@@ -1,0 +1,272 @@
+﻿<div class="wrapper">
+    <div ui-view="Header"></div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="min-height:650px !important;" ng-app="CRMApp">
+        <!-- header starts here -->
+        <div class="container-fluid page_name">
+            <div class="col-sm-10"><i class="fa fa-flag"></i> Media News List</div>
+        </div>
+        <!-- header ends here -->
+        <div class="container-fluid padding_set">
+
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <div class="col-sm-12 zro"><i class="fa fa-bullhorn"></i> MEDIA APPLICATION FORM</div>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="box-body no-padding">
+
+                            <div class="col-md-12">
+                                <div class="col-md-2 zro_left" title="Select News Type">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        Select News Type<br>
+                                        <select size="1" class="sel_menu" id="newsType" title="Select News Type">
+                                            <option value="1">News Report</option>
+                                            <option value="2">LTE</option>
+                                            <option value="3">SOT/Beepers</option>
+                                            <option value="4">Picture Release</option>
+                                            <option value="5">Rebuttal</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 zro_left" title="Select Media Type">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        Select Media Type<br>
+                                        <select size="1" class="sel_menu" id="mediaType" title="Select Media Type">
+                                            <option value="1">Print</option>
+                                            <option value="2">Radio</option>
+                                            <option value="3">TV</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 zro_left">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        Select Channel<br>
+                                        <select size="1" class="sel_menu" id="ChanSelect" title="Select Channel">
+                                            <option value="1">Dawn</option>
+                                            <option value="2">Geo</option>
+                                            <option value="3">ARY News</option>
+                                            <option value="4">Express News</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 zro_left">
+                                    <div id="multisel" style="margin-bottom:10px !important;">
+                                        Select Categories<br>
+                                        <select class="sel_menu" multiple id="catSelect" title="Select Categories">
+                                            <option value="1">Bill</option>
+                                            <option value="2">Disconnection</option>
+                                            <option value="3">Deaths</option>
+                                            <option value="4">Attocks</option>
+                                            <option value="5">Labor Union</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 zro_left">
+                                    <div id="multisel" style="margin-bottom:10px !important;" title="Select Sentiment">
+                                        Select Sentiments<br>
+                                        <select size="1" class="sel_menu" id="sentSelect">
+                                            <option value="1" selected>Positive</option>
+                                            <option value="2">Negative</option>
+                                            <option value="3">Neutral</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 zro_left">
+                                    <div class="demo" style="margin-bottom:10px !important;">
+                                        <input type="text" id="ctrlanalyticdatepicker" class="form-control ">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 zro_left">
+                                    <button type="button" class="btn btn-primary button_round  btn_height3"><i class="fa fa-filter"></i> FILTER</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div>
+                                <div class="col-md-12 table-bordered pad_sett">
+
+                                    <div class="col-md-12 zro">
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Media Type:</strong><br>Print<br>
+                                            <strong>News Type:</strong> <br>Breaking News
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Date:</strong><br> 30-September-2016<br>
+                                            <strong>Times:</strong> <br>9:00am, 10:00am
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Channel:</strong> <br>Express News<br>
+                                            <strong>City: </strong><br>Rawalpindi
+                                        </div><div class="col-md-2 zro_left">
+                                            <strong>Categorie(s):</strong> <br>Bill, Disconnection<br>
+                                            <strong>Sentiment: </strong><br>Negative
+                                        </div> <div class="col-md-2 zro_left">
+                                            <strong>Script:</strong><br> It is a long established fact.<br>
+                                            <strong>Clipping Upload:</strong><br>
+                                            <a href="#"><i class="fa fa-image"></i></a>  <a href="#"><i class="fa fa-music"></i></a>
+                                        </div>
+                                        <div class="col-md-1 zro_left">
+                                            <strong>PR Value:</strong><br> Rs. 92000<br>
+                                            <strong>Noise Index:</strong><br>
+                                            -5
+                                        </div>
+                                        <div class="col-md-1 zro_left"><strong>Actions:</strong><br> <a href="#" title="Edit"><i class="fa fa-pencil"></i></a> <a href="#" title="Delete" style="margin-left:5px;"><i class="fa fa-trash"></i></a><br></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 table-bordered pad_sett at_blkk">
+                                    <div class="col-md-12 zro">
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Media Type:</strong><br>Print<br>
+                                            <strong>News Type:</strong> <br>Breaking News
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Date:</strong><br> 30-September-2016<br>
+                                            <strong>Times:</strong> <br>9:00am, 10:00am
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Channel:</strong> <br>Express News<br>
+                                            <strong>City: </strong><br>Rawalpindi
+                                        </div><div class="col-md-2 zro_left">
+                                            <strong>Categorie(s):</strong> <br>Bill, Disconnection<br>
+                                            <strong>Sentiment: </strong><br>Negative
+                                        </div> <div class="col-md-2 zro_left">
+                                            <strong>Script:</strong><br> It is a long established fact.<br>
+                                            <strong>Clipping Upload:</strong><br>
+                                            <a href="#"><i class="fa fa-image"></i></a>  <a href="#"><i class="fa fa-music"></i></a>
+                                        </div>
+                                        <div class="col-md-1 zro_left">
+                                            <strong>PR Value:</strong><br> Rs. 92000<br>
+                                            <strong>Noise Index:</strong><br>
+                                            -5
+                                        </div>
+                                        <div class="col-md-1 zro_left"><strong>Actions:</strong><br> <a href="#" title="Edit"><i class="fa fa-pencil"></i></a> <a href="#" title="Delete" style="margin-left:5px;"><i class="fa fa-trash"></i></a><br></div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12 table-bordered pad_sett">
+                                    <div class="col-md-12 zro">
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Media Type:</strong><br>Print<br>
+                                            <strong>News Type:</strong> <br>Breaking News
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Date:</strong><br> 30-September-2016<br>
+                                            <strong>Times:</strong> <br>9:00am, 10:00am
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Channel:</strong> <br>Express News<br>
+                                            <strong>City: </strong><br>Rawalpindi
+                                        </div><div class="col-md-2 zro_left">
+                                            <strong>Categorie(s):</strong> <br>Bill, Disconnection<br>
+                                            <strong>Sentiment: </strong><br>Negative
+                                        </div> <div class="col-md-2 zro_left">
+                                            <strong>Script:</strong><br> It is a long established fact.<br>
+                                            <strong>Clipping Upload:</strong><br>
+                                            <a href="#"><i class="fa fa-image"></i></a>  <a href="#"><i class="fa fa-music"></i></a>
+                                        </div>
+                                        <div class="col-md-1 zro_left">
+                                            <strong>PR Value:</strong><br> Rs. 92000<br>
+                                            <strong>Noise Index:</strong><br>
+                                            -5
+                                        </div>
+                                        <div class="col-md-1 zro_left"><strong>Actions:</strong><br> <a href="#" title="Edit"><i class="fa fa-pencil"></i></a> <a href="#" title="Delete" style="margin-left:5px;"><i class="fa fa-trash"></i></a><br></div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12 table-bordered pad_sett at_blkk">
+                                    <div class="col-md-12 zro">
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Media Type:</strong><br>Print<br>
+                                            <strong>News Type:</strong> <br>Breaking News
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Date:</strong><br> 30-September-2016<br>
+                                            <strong>Times:</strong> <br>9:00am, 10:00am
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Channel:</strong> <br>Express News<br>
+                                            <strong>City: </strong><br>Rawalpindi
+                                        </div><div class="col-md-2 zro_left">
+                                            <strong>Categorie(s):</strong> <br>Bill, Disconnection<br>
+                                            <strong>Sentiment: </strong><br>Negative
+                                        </div> <div class="col-md-2 zro_left">
+                                            <strong>Script:</strong><br> It is a long established fact.<br>
+                                            <strong>Clipping Upload:</strong><br>
+                                            <a href="#"><i class="fa fa-image"></i></a>  <a href="#"><i class="fa fa-music"></i></a>
+                                        </div>
+                                        <div class="col-md-1 zro_left">
+                                            <strong>PR Value:</strong><br> Rs. 92000<br>
+                                            <strong>Noise Index:</strong><br>
+                                            -5
+                                        </div>
+                                        <div class="col-md-1 zro_left"><strong>Actions:</strong><br> <a href="#" title="Edit"><i class="fa fa-pencil"></i></a> <a href="#" title="Delete" style="margin-left:5px;"><i class="fa fa-trash"></i></a><br></div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12 table-bordered pad_sett">
+                                    <div class="col-md-12 zro">
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Media Type:</strong><br>Print<br>
+                                            <strong>News Type:</strong> <br>Breaking News
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Date:</strong><br> 30-September-2016<br>
+                                            <strong>Times:</strong> <br>9:00am, 10:00am
+                                        </div>
+                                        <div class="col-md-2 zro_left">
+                                            <strong>Channel:</strong> <br>Express News<br>
+                                            <strong>City: </strong><br>Rawalpindi
+                                        </div><div class="col-md-2 zro_left">
+                                            <strong>Categorie(s):</strong> <br>Bill, Disconnection<br>
+                                            <strong>Sentiment: </strong><br>Negative
+                                        </div> <div class="col-md-2 zro_left">
+                                            <strong>Script:</strong><br> It is a long established fact.<br>
+                                            <strong>Clipping Upload:</strong><br>
+                                            <a href="#"><i class="fa fa-image"></i></a>  <a href="#"><i class="fa fa-music"></i></a>
+                                        </div>
+                                        <div class="col-md-1 zro_left">
+                                            <strong>PR Value:</strong><br> Rs. 92000<br>
+                                            <strong>Noise Index:</strong><br>
+                                            -5
+                                        </div>
+                                        <div class="col-md-1 zro_left"><strong>Actions:</strong><br> <a href="#" title="Edit"><i class="fa fa-pencil"></i></a> <a href="#" title="Delete" style="margin-left:5px;"><i class="fa fa-trash"></i></a><br></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination pagination-sm">
+                                        <li>
+                                            <a href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li>
+                                            <a href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+    </div>
+</div>
+<!-- Main content -->
+<div ui-view="Footer"></div>

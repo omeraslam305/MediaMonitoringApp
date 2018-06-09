@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SocialCRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="ProfileImage" Type="nvarchar(max)" />
+    <Property Name="ConfirmationCode" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="SignHTML" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChannelScores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MediaTypeId" Type="int" Nullable="false" />
+    <Property Name="NewsTypeId" Type="int" Nullable="false" />
+    <Property Name="SentimentId" Type="int" Nullable="false" />
+    <Property Name="TimSlot" Type="varchar" MaxLength="500" />
+    <Property Name="Score" Type="int" Nullable="false" />
+    <Property Name="ChannelId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityName" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EDReportFilter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ChannelIds" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="FilterType" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailAssignedRights">
+    <Key>
+      <PropertyRef Name="EmailId" />
+      <PropertyRef Name="EmailRightId" />
+    </Key>
+    <Property Name="EmailId" Type="int" Nullable="false" />
+    <Property Name="EmailRightId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailRights">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailRightName" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaChannels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChannelName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="MediaTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaNews">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MediaTypeId" Type="int" Nullable="false" />
+    <Property Name="NewsTypeId" Type="int" Nullable="false" />
+    <Property Name="ChannelId" Type="int" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="NewsDate" Type="date" Nullable="false" />
+    <Property Name="NewsTime" Type="time" Precision="0" />
+    <Property Name="SentimentId" Type="int" Nullable="false" />
+    <Property Name="Script" Type="varchar(max)" />
+    <Property Name="ColumnNumber" Type="int" />
+    <Property Name="ColumnHeight" Type="int" />
+    <Property Name="AdvertisingRate" Type="varchar" MaxLength="500" />
+    <Property Name="ParValue" Type="varchar" MaxLength="500" />
+    <Property Name="Multiplier" Type="float" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Subject" Type="varchar(max)" />
+    <Property Name="NumOfRepetition" Type="int" />
+    <Property Name="PageNumber" Type="varchar" MaxLength="500" />
+    <Property Name="NewsRelation" Type="int" Nullable="false" />
+    <Property Name="IsKEActivity" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaNewsAttachment">
+    <Key>
+      <PropertyRef Name="MediaNewsId" />
+    </Key>
+    <Property Name="MediaNewsId" Type="int" Nullable="false" />
+    <Property Name="FileName" Type="varchar" MaxLength="500" />
+    <Property Name="ContentType" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Insight360MediaCRM_KE.dbo.MediaNewsAttachmentO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MediaNewsCategories">
+    <Key>
+      <PropertyRef Name="MediaNewsId" />
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="MediaNewsId" Type="int" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeName" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NewsRelatedTo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NewsType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NewsTypeName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="MediaTypeId" Type="int" Nullable="false" />
+    <Property Name="IsKEActivity" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sentiments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ChannelScores_NewsType">
+    <End Role="NewsType" Type="Self.NewsType" Multiplicity="1" />
+    <End Role="ChannelScores" Type="Self.ChannelScores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NewsType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChannelScores">
+        <PropertyRef Name="NewsTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChannelScores_Sentiments">
+    <End Role="Sentiments" Type="Self.Sentiments" Multiplicity="1" />
+    <End Role="ChannelScores" Type="Self.ChannelScores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sentiments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChannelScores">
+        <PropertyRef Name="SentimentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmailAssignedRights_Email">
+    <End Role="Email" Type="Self.Email" Multiplicity="1" />
+    <End Role="EmailAssignedRights" Type="Self.EmailAssignedRights" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Email">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmailAssignedRights">
+        <PropertyRef Name="EmailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmailAssignedRights_EmailRights">
+    <End Role="EmailRights" Type="Self.EmailRights" Multiplicity="1" />
+    <End Role="EmailAssignedRights" Type="Self.EmailAssignedRights" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmailRights">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmailAssignedRights">
+        <PropertyRef Name="EmailRightId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaChannels_MediaType">
+    <End Role="MediaType" Type="Self.MediaType" Multiplicity="1" />
+    <End Role="MediaChannels" Type="Self.MediaChannels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaChannels">
+        <PropertyRef Name="MediaTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_AspNetUsers_CreatedBy">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="MediaNews" Type="Self.MediaNews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNews">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_AspNetUsersUpdatedBy">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="MediaNews" Type="Self.MediaNews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNews">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="MediaNews" Type="Self.MediaNews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="MediaNews">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_MediaChannels">
+    <End Role="MediaChannels" Type="Self.MediaChannels" Multiplicity="0..1" />
+    <End Role="MediaNews" Type="Self.MediaNews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaChannels">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNews">
+        <PropertyRef Name="ChannelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_MediaType">
+    <End Role="MediaType" Type="Self.MediaType" Multiplicity="1" />
+    <End Role="MediaNews" Type="Self.MediaNews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNews">
+        <PropertyRef Name="MediaTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_NewsRelatedTo">
+    <End Role="NewsRelatedTo" Type="Self.NewsRelatedTo" Multiplicity="1" />
+    <End Role="MediaNews" Type="Self.MediaNews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NewsRelatedTo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNews">
+        <PropertyRef Name="NewsRelation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_NewsType">
+    <End Role="NewsType" Type="Self.NewsType" Multiplicity="1" />
+    <End Role="MediaNews" Type="Self.MediaNews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NewsType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNews">
+        <PropertyRef Name="NewsTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_Sentiments">
+    <End Role="Sentiments" Type="Self.Sentiments" Multiplicity="1" />
+    <End Role="MediaNews" Type="Self.MediaNews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sentiments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNews">
+        <PropertyRef Name="SentimentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNews_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="MediaNews" Type="Self.MediaNews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="MediaNews">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNewsAttachment_MediaNews">
+    <End Role="MediaNews" Type="Self.MediaNews" Multiplicity="1" />
+    <End Role="MediaNewsAttachment" Type="Self.MediaNewsAttachment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="MediaNews">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNewsAttachment">
+        <PropertyRef Name="MediaNewsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNewsCategories_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="MediaNewsCategories" Type="Self.MediaNewsCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNewsCategories">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaNewsCategories_MediaNews">
+    <End Role="MediaNews" Type="Self.MediaNews" Multiplicity="1" />
+    <End Role="MediaNewsCategories" Type="Self.MediaNewsCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaNews">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MediaNewsCategories">
+        <PropertyRef Name="MediaNewsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaType_NewsType">
+    <End Role="MediaType" Type="Self.MediaType" Multiplicity="1" />
+    <End Role="NewsType" Type="Self.NewsType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NewsType">
+        <PropertyRef Name="MediaTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DeleteChannelScores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetMediaReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="MediaTypeIds" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NewsTypeIds" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ChannelIds" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CategoryIds" Type="varchar(max)" Mode="In" />
+    <Parameter Name="RelevanceIds" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FromDate" Type="datetime" Mode="In" />
+    <Parameter Name="ToDate" Type="datetime" Mode="In" />
+    <Parameter Name="Script" Type="varchar(max)" Mode="In" />
+    <Parameter Name="IsKEActivity" Type="bit" Mode="In" />
+    <Parameter Name="ReportType" Type="int" Mode="In" />
+    <Parameter Name="FilterType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetMediaReportDrillDown" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="MediaTypeIds" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NewsTypeIds" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ChannelIds" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CategoryIds" Type="varchar(max)" Mode="In" />
+    <Parameter Name="RelevanceIds" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FromDate" Type="datetime" Mode="In" />
+    <Parameter Name="ToDate" Type="datetime" Mode="In" />
+    <Parameter Name="Script" Type="varchar(max)" Mode="In" />
+    <Parameter Name="IsKEActivity" Type="bit" Mode="In" />
+    <Parameter Name="ReportType" Type="int" Mode="In" />
+    <Parameter Name="FilterType" Type="int" Mode="In" />
+    <Parameter Name="XAxis1" Type="varchar(max)" Mode="In" />
+    <Parameter Name="XAxis2" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PageNumber" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="SocialCRMModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChannelScores" EntityType="Self.ChannelScores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EDReportFilter" EntityType="Self.EDReportFilter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Email" EntityType="Self.Email" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailAssignedRights" EntityType="Self.EmailAssignedRights" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailRights" EntityType="Self.EmailRights" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaChannels" EntityType="Self.MediaChannels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaNews" EntityType="Self.MediaNews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaNewsAttachment" EntityType="Self.MediaNewsAttachment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaNewsCategories" EntityType="Self.MediaNewsCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaType" EntityType="Self.MediaType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NewsRelatedTo" EntityType="Self.NewsRelatedTo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NewsType" EntityType="Self.NewsType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sentiments" EntityType="Self.Sentiments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ChannelScores_NewsType" Association="Self.FK_ChannelScores_NewsType">
+      <End Role="NewsType" EntitySet="NewsType" />
+      <End Role="ChannelScores" EntitySet="ChannelScores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChannelScores_Sentiments" Association="Self.FK_ChannelScores_Sentiments">
+      <End Role="Sentiments" EntitySet="Sentiments" />
+      <End Role="ChannelScores" EntitySet="ChannelScores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmailAssignedRights_Email" Association="Self.FK_EmailAssignedRights_Email">
+      <End Role="Email" EntitySet="Email" />
+      <End Role="EmailAssignedRights" EntitySet="EmailAssignedRights" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmailAssignedRights_EmailRights" Association="Self.FK_EmailAssignedRights_EmailRights">
+      <End Role="EmailRights" EntitySet="EmailRights" />
+      <End Role="EmailAssignedRights" EntitySet="EmailAssignedRights" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaChannels_MediaType" Association="Self.FK_MediaChannels_MediaType">
+      <End Role="MediaType" EntitySet="MediaType" />
+      <End Role="MediaChannels" EntitySet="MediaChannels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_AspNetUsers_CreatedBy" Association="Self.FK_MediaNews_AspNetUsers_CreatedBy">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="MediaNews" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_AspNetUsersUpdatedBy" Association="Self.FK_MediaNews_AspNetUsersUpdatedBy">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="MediaNews" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_City" Association="Self.FK_MediaNews_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="MediaNews" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_MediaChannels" Association="Self.FK_MediaNews_MediaChannels">
+      <End Role="MediaChannels" EntitySet="MediaChannels" />
+      <End Role="MediaNews" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_MediaType" Association="Self.FK_MediaNews_MediaType">
+      <End Role="MediaType" EntitySet="MediaType" />
+      <End Role="MediaNews" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_NewsRelatedTo" Association="Self.FK_MediaNews_NewsRelatedTo">
+      <End Role="NewsRelatedTo" EntitySet="NewsRelatedTo" />
+      <End Role="MediaNews" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_NewsType" Association="Self.FK_MediaNews_NewsType">
+      <End Role="NewsType" EntitySet="NewsType" />
+      <End Role="MediaNews" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_Sentiments" Association="Self.FK_MediaNews_Sentiments">
+      <End Role="Sentiments" EntitySet="Sentiments" />
+      <End Role="MediaNews" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNews_Status" Association="Self.FK_MediaNews_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="MediaNews" EntitySet="MediaNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNewsAttachment_MediaNews" Association="Self.FK_MediaNewsAttachment_MediaNews">
+      <End Role="MediaNews" EntitySet="MediaNews" />
+      <End Role="MediaNewsAttachment" EntitySet="MediaNewsAttachment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNewsCategories_Categories" Association="Self.FK_MediaNewsCategories_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="MediaNewsCategories" EntitySet="MediaNewsCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaNewsCategories_MediaNews" Association="Self.FK_MediaNewsCategories_MediaNews">
+      <End Role="MediaNews" EntitySet="MediaNews" />
+      <End Role="MediaNewsCategories" EntitySet="MediaNewsCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaType_NewsType" Association="Self.FK_MediaType_NewsType">
+      <End Role="MediaType" EntitySet="MediaType" />
+      <End Role="NewsType" EntitySet="NewsType" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
